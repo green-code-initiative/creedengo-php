@@ -1,9 +1,9 @@
-name: sonarqube_ecocode_php
+name: sonarqube_creedengo_php
 
 services:
   sonar:
     build: .
-    container_name: sonar_ecocode_php
+    container_name: sonar_creedengo_php
     ports:
       - ":9000"
     networks:
@@ -28,7 +28,7 @@ services:
 
   db:
     image: postgres:12
-    container_name: postgresql_ecocode_php
+    container_name: postgresql_creedengo_php
     networks:
       - sonarnet
     volumes:

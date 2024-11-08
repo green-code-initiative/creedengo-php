@@ -41,9 +41,9 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
     );
 
     private static final String LANGUAGE = "php";
-    private static final String NAME = "ecoCode";
-    private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/php";
-    private static final String REPOSITORY_KEY = "ecocode-php";
+    private static final String NAME = "creedengo";
+    private static final String RESOURCE_BASE_PATH = "io/creedengo/rules/php";
+    private static final String REPOSITORY_KEY = "creedengo-php";
 
     private final SonarRuntime sonarRuntime;
 
