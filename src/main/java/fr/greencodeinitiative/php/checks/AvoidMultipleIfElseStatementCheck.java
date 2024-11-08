@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * FUNCTIONAL DESCRIPTION : please see ASCIIDOC description file of this rule (inside `ecocode-rules-spcifications`)
+ * FUNCTIONAL DESCRIPTION : please see ASCIIDOC description file of this rule (inside `creedengo-rules-spcifications`)
  * TECHNICAL CHOICES :
  * - Kind.IF_STATEMENT, Kind.ELSE_STATEMENT, Kind.ELSEIF_STATEMENT not used because it isn't possible
  * to keep parent references to check later if variables already used or not in parent tree
