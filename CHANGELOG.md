@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [#34](https://github.com/green-code-initiative/ecoCode-php/issues/34) Add test to ensure all Rules are registered
+- [#34](https://github.com/green-code-initiative/creedengo-php/issues/34) Add test to ensure all Rules are registered
 
 ### Deleted
 
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - upgrade docker system
-- [#30](https://github.com/green-code-initiative/ecoCode-php/issues/30) Upgrade dependencies to latest ones - technical
+- [#30](https://github.com/green-code-initiative/creedengo-php/issues/30) Upgrade dependencies to latest ones - technical
   incompatibilities for SonarQube before 9.9 version
 - clean unit test files (to have less other issues)
 
@@ -34,18 +34,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [#28](https://github.com/green-code-initiative/ecoCode-php/issues/28) Add support for SonarQube 10.6.0
+- [#28](https://github.com/green-code-initiative/creedengo-php/issues/28) Add support for SonarQube 10.6.0
 
 ## [1.4.3] - 2024-05-15
 
 ### Added
 
-- [#20](https://github.com/green-code-initiative/ecoCode-php/issues/20) Add support for SonarQube 10.4 "
+- [#20](https://github.com/green-code-initiative/creedengo-php/issues/20) Add support for SonarQube 10.4 "
   DownloadOnlyWhenRequired" feature
 
 ### Changed
 
-- [#23](https://github.com/green-code-initiative/ecoCode-php/issues/23) deprecation of EC22 rule for PHP (waiting for
+- [#23](https://github.com/green-code-initiative/creedengo-php/issues/23) deprecation of EC22 rule for PHP (waiting for
   measurement to prove it)
 - check Sonarqube 10.5.1 compatibility + update docker files and README.md
 
@@ -53,8 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [#17](https://github.com/green-code-initiative/ecoCode-php/issues/17) Correction of error with deprecated EC34 rule
-- Update ecocode-rules-specifications to 1.4.7
+- [#17](https://github.com/green-code-initiative/creedengo-php/issues/17) Correction of error with deprecated EC34 rule
+- Update creedengo-rules-specifications to 1.4.7
 
 ## [1.4.1] - 2024-01-06
 
@@ -64,29 +64,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [#9](https://github.com/green-code-initiative/ecoCode-php/pull/9) Upgrade licence system and licence headers of Java
+- [#9](https://github.com/green-code-initiative/creedengo-php/pull/9) Upgrade licence system and licence headers of Java
   files
-- [#10](https://github.com/green-code-initiative/ecoCode-php/pull/10) Adding EC35 rule : EC35 rule replaces EC34 with a
+- [#10](https://github.com/green-code-initiative/creedengo-php/pull/10) Adding EC35 rule : EC35 rule replaces EC34 with a
   specific use case ("file not found" specific)
-- [#13](https://github.com/green-code-initiative/ecoCode-php/issues/13) Add build number to manifest
-- [#12](https://github.com/green-code-initiative/ecoCode-php/issues/12) Fix unit tests execution with Maven
-- Update ecocode-rules-specifications to 1.4.6
+- [#13](https://github.com/green-code-initiative/creedengo-php/issues/13) Add build number to manifest
+- [#12](https://github.com/green-code-initiative/creedengo-php/issues/12) Fix unit tests execution with Maven
+- Update creedengo-rules-specifications to 1.4.6
 - README.md upgrade : docker test environment
 
 ## [1.4.0] - 2023-08-08
 
 ### Added
 
-- PHP rules moved from `ecoCode` repository to current repository
-- [#121](https://github.com/green-code-initiative/ecoCode/issues/121) new PHP rule : Multiple if-else statement +
+- PHP rules moved from `creedengo` repository to current repository
+- [#121](https://github.com/green-code-initiative/creedengo/issues/121) new PHP rule : Multiple if-else statement +
   refactoring implementation
-- [#205](https://github.com/green-code-initiative/ecoCode/issues/205) compatibility with SonarQube 10.1
+- [#205](https://github.com/green-code-initiative/creedengo/issues/205) compatibility with SonarQube 10.1
 
 ## Comparison list
 
-[unreleased](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.4...HEAD)
-[1.4.4](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.3...1.4.4)
-[1.4.3](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.2...1.4.3)
-[1.4.2](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.1...1.4.2)
-[1.4.1](https://github.com/green-code-initiative/ecoCode-php/compare/1.4.0...1.4.1)
-[1.4.0](https://github.com/green-code-initiative/ecoCode-php/releases/tag/1.4.0)
+[unreleased](https://github.com/green-code-initiative/creedengo-php/compare/1.4.4...HEAD)
+[1.4.4](https://github.com/green-code-initiative/creedengo-php/compare/1.4.3...1.4.4)
+[1.4.3](https://github.com/green-code-initiative/creedengo-php/compare/1.4.2...1.4.3)
+[1.4.2](https://github.com/green-code-initiative/creedengo-php/compare/1.4.1...1.4.2)
+[1.4.1](https://github.com/green-code-initiative/creedengo-php/compare/1.4.0...1.4.1)
+[1.4.0](https://github.com/green-code-initiative/creedengo-php/releases/tag/1.4.0)

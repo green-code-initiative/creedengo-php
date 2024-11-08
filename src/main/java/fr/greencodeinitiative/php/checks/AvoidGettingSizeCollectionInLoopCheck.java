@@ -1,5 +1,5 @@
 /*
- * ecoCode - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
+ * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
  * Copyright © 2023 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
