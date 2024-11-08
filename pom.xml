@@ -272,9 +272,9 @@
                 <executions>
                     <execution>
                         <id>validate</id>
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
                         <phase>validate</phase>
                     </execution>
                 </executions>
