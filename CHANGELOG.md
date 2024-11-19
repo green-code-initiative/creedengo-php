@@ -54,7 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [#17](https://github.com/green-code-initiative/creedengo-php/issues/17) Correction of error with deprecated EC34 rule
-- Update creedengo-rules-specifications to 1.4.7
+- Update ecocode-rules-specifications to 1.4.7
 
 ## [1.4.1] - 2024-01-06
 
@@ -70,14 +70,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   specific use case ("file not found" specific)
 - [#13](https://github.com/green-code-initiative/creedengo-php/issues/13) Add build number to manifest
 - [#12](https://github.com/green-code-initiative/creedengo-php/issues/12) Fix unit tests execution with Maven
-- Update creedengo-rules-specifications to 1.4.6
+- Update ecoCode-rules-specifications to 1.4.6
 - README.md upgrade : docker test environment
 
 ## [1.4.0] - 2023-08-08
 
 ### Added
 
-- PHP rules moved from `creedengo` repository to current repository
+- PHP rules moved from `ecoCode` repository to current repository
 - [#121](https://github.com/green-code-initiative/creedengo/issues/121) new PHP rule : Multiple if-else statement +
   refactoring implementation
 - [#205](https://github.com/green-code-initiative/creedengo/issues/205) compatibility with SonarQube 10.1

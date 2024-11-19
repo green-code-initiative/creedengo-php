@@ -51,9 +51,9 @@ class PhpRuleRepositoryTest {
     @Test
     @DisplayName("Test repository metadata")
     void testMetadata() {
-        assertThat(repository.name()).isEqualTo("creedengo");
+        assertThat(repository.name()).isEqualTo("ecoCode");
         assertThat(repository.language()).isEqualTo("php");
-        assertThat(repository.key()).isEqualTo("creedengo-php");
+        assertThat(repository.key()).isEqualTo("ecocode-php");
     }
 
     @Test
