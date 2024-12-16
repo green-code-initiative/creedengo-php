@@ -31,6 +31,7 @@ import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI69")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC69")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S69")
 public class NoFunctionCallWhenDeclaringForLoop extends PHPSubscriptionCheck {
 

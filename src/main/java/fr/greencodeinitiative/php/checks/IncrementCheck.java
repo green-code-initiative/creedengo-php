@@ -27,6 +27,7 @@ import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI67")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC67")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S67")
 public class IncrementCheck extends PHPSubscriptionCheck {
 

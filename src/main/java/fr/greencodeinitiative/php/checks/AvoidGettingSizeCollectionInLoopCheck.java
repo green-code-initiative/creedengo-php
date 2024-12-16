@@ -27,12 +27,14 @@ import org.sonar.plugins.php.api.tree.statement.ForStatementTree;
 import org.sonar.plugins.php.api.tree.statement.StatementTree;
 import org.sonar.plugins.php.api.tree.statement.WhileStatementTree;
 import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
 @Rule(key = "GCI3")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC3")
 public class AvoidGettingSizeCollectionInLoopCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Avoid getting the size of the collection in the loop";

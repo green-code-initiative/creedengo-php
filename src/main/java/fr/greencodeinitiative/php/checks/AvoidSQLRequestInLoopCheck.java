@@ -35,6 +35,7 @@ import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI72")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC72")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S72")
 public class AvoidSQLRequestInLoopCheck extends PHPSubscriptionCheck {
 

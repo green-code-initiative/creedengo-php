@@ -32,6 +32,7 @@ import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI35")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC35")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S34")
 @DeprecatedRuleKey(ruleKey = "EC34")
 

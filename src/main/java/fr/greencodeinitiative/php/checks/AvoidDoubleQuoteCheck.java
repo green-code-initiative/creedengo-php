@@ -31,6 +31,7 @@ import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 @Rule(key = "GCI66")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC66")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S66")
 public class AvoidDoubleQuoteCheck extends PHPSubscriptionCheck {
 

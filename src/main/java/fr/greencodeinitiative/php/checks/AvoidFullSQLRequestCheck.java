@@ -29,6 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Rule(key = "GCI74")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC74")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S74")
 public class AvoidFullSQLRequestCheck extends PHPSubscriptionCheck {
 

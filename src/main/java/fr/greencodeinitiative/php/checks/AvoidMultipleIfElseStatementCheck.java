@@ -26,6 +26,7 @@ import org.sonar.plugins.php.api.tree.expression.ExpressionTree;
 import org.sonar.plugins.php.api.tree.expression.VariableIdentifierTree;
 import org.sonar.plugins.php.api.tree.statement.*;
 import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +42,7 @@ import java.util.Map;
  * - IF and ELSEIF statements are considered as an IF statement
  */
 @Rule(key = "GCI2")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC2")
 public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Use a switch statement instead of multiple if-else if possible";
