@@ -241,7 +241,7 @@
                                     </excludes>
                                 </filter>
                                 <filter>
-                                    <artifact>io.ecocode:ecocode-rules-specifications:*</artifact>
+                                    <artifact>org.green-code-initiative:creedengo-rules-specifications:*</artifact>
                                     <excludes>
                                         <exclude>META-INF/**</exclude>
                                     </excludes>
