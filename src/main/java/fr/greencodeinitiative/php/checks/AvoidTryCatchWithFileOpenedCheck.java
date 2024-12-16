@@ -69,7 +69,6 @@ public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
                 case SWITCH_STATEMENT -> visitSwitchStatement((SwitchStatementTree) stmt);
                 case DEFAULT_CLAUSE -> visitStatementsList(((DefaultClauseTree) stmt).statements());
                 case TRY_STATEMENT -> visitTryStatement((TryStatementTree) stmt);
-                default -> {}
             }
         }
     }
