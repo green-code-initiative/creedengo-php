@@ -17,7 +17,6 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -59,44 +58,18 @@ public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
         for (StatementTree stmt : lstStmts){
             Tree.Kind kind = stmt.getKind();
             switch (kind) {
-                case EXPRESSION_STATEMENT:
-                    visitExpressionStatement(((ExpressionStatementTree) stmt).expression());
-                    break;
-                case BLOCK:
-                    visitStatementsList(((BlockTree) stmt).statements());
-                    break;
-                case IF_STATEMENT:
-                case ALTERNATIVE_IF_STATEMENT:
-                    visitIfStatement((IfStatementTree) stmt);
-                    break;
-                case FOR_STATEMENT:
-                case ALTERNATIVE_FOR_STATEMENT:
-                    visitStatementsList(((ForStatementTree) stmt).statements());
-                    break;
-                case WHILE_STATEMENT:
-                case ALTERNATIVE_WHILE_STATEMENT:
-                    visitStatementsList(((WhileStatementTree) stmt).statements());
-                    break;
-                case DO_WHILE_STATEMENT:
-                    visitStatementsList(Arrays.asList(((DoWhileStatementTree) stmt).statement()));
-                    break;
-                case FOREACH_STATEMENT:
-                case ALTERNATIVE_FOREACH_STATEMENT:
-                    visitStatementsList(((ForEachStatementTree) stmt).statements());
-                    break;
-                case CASE_CLAUSE:
-                    visitStatementsList(((CaseClauseTree) stmt).statements());
-                    break;
-                case SWITCH_STATEMENT:
-                    visitSwitchStatement((SwitchStatementTree) stmt);
-                    break;
-                case DEFAULT_CLAUSE:
-                    visitStatementsList(((DefaultClauseTree) stmt).statements());
-                    break;
-                case TRY_STATEMENT:
-                    visitTryStatement((TryStatementTree) stmt);
-                    break;
-                default:
+                case EXPRESSION_STATEMENT -> visitExpressionStatement(((ExpressionStatementTree) stmt).expression());
+                case BLOCK -> visitStatementsList(((BlockTree) stmt).statements());
+                case IF_STATEMENT, ALTERNATIVE_IF_STATEMENT -> visitIfStatement((IfStatementTree) stmt);
+                case FOR_STATEMENT, ALTERNATIVE_FOR_STATEMENT -> visitStatementsList(((ForStatementTree) stmt).statements());
+                case WHILE_STATEMENT, ALTERNATIVE_WHILE_STATEMENT -> visitStatementsList(((WhileStatementTree) stmt).statements());
+                case DO_WHILE_STATEMENT -> visitStatementsList(Collections.singletonList(((DoWhileStatementTree) stmt).statement()));
+                case FOREACH_STATEMENT, ALTERNATIVE_FOREACH_STATEMENT -> visitStatementsList(((ForEachStatementTree) stmt).statements());
+                case CASE_CLAUSE -> visitStatementsList(((CaseClauseTree) stmt).statements());
+                case SWITCH_STATEMENT -> visitSwitchStatement((SwitchStatementTree) stmt);
+                case DEFAULT_CLAUSE -> visitStatementsList(((DefaultClauseTree) stmt).statements());
+                case TRY_STATEMENT -> visitTryStatement((TryStatementTree) stmt);
+                default -> {}
             }
         }
     }
