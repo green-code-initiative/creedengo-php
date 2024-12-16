@@ -1,6 +1,6 @@
 /*
- * ecoCode - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://www.ecocode.io)
+ * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Rule(key = "EC74")
+@Rule(key = "GCI74")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC74")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S74")
 public class AvoidFullSQLRequestCheck extends PHPSubscriptionCheck {
 

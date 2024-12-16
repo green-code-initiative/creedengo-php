@@ -1,6 +1,6 @@
 /*
- * ecoCode - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://www.ecocode.io)
+ * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,13 +26,14 @@ import org.sonar.plugins.php.api.tree.expression.ExpressionTree;
 import org.sonar.plugins.php.api.tree.expression.VariableIdentifierTree;
 import org.sonar.plugins.php.api.tree.statement.*;
 import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * FUNCTIONAL DESCRIPTION : please see ASCIIDOC description file of this rule (inside `ecocode-rules-spcifications`)
+ * FUNCTIONAL DESCRIPTION : please see ASCIIDOC description file of this rule (inside `creedengo-rules-spcifications`)
  * TECHNICAL CHOICES :
  * - Kind.IF_STATEMENT, Kind.ELSE_STATEMENT, Kind.ELSEIF_STATEMENT not used because it isn't possible
  * to keep parent references to check later if variables already used or not in parent tree
@@ -40,7 +41,8 @@ import java.util.Map;
  * - an "ELSE" statement is considered as a second IF statement using the same variables used on previous
  * - IF and ELSEIF statements are considered as an IF statement
  */
-@Rule(key = "EC2")
+@Rule(key = "GCI2")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC2")
 public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Use a switch statement instead of multiple if-else if possible";

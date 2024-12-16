@@ -3,17 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.ecocode</groupId>
-    <artifactId>ecocode-php-plugin</artifactId>
+    <groupId>org.green-code-initiative</groupId>
+    <artifactId>creedengo-php-plugin</artifactId>
     <version>1.5.2-SNAPSHOT</version>
 
     <packaging>sonar-plugin</packaging>
 
-    <name>ecoCode - PHP language</name>
+    <name>creedengo - PHP language</name>
     <description>Provides rules to reduce the environmental footprint of your PHP programs</description>
-    <inceptionYear>2023</inceptionYear>
+    <inceptionYear>2024</inceptionYear>
 
-    <url>https://github.com/green-code-initiative/ecoCode-php</url>
+    <url>https://github.com/green-code-initiative/creedengo-php</url>
     <organization>
         <name>green-code-initiative</name>
         <url>https://github.com/green-code-initiative</url>
@@ -28,15 +28,15 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/green-code-initiative/ecocode-php</connection>
-        <developerConnection>scm:git:https://github.com/green-code-initiative/ecocode-php</developerConnection>
-        <url>https://github.com/green-code-initiative/ecocode-php</url>
+        <connection>scm:git:https://github.com/green-code-initiative/creedengo-php</connection>
+        <developerConnection>scm:git:https://github.com/green-code-initiative/creedengo-php</developerConnection>
+        <url>https://github.com/green-code-initiative/creedengo-php</url>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/green-code-initiative/ecoCode-php/issues</url>
+        <url>https://github.com/green-code-initiative/creedengo-php/issues</url>
     </issueManagement>
 
     <properties>
@@ -64,8 +64,8 @@
 
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
-        <!-- temporary version waiting for real automatic release in ecocode repository -->
-        <ecocode-rules-specifications.version>1.6.2</ecocode-rules-specifications.version>
+        <!-- temporary version waiting for real automatic release in creedengo repository -->
+        <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
 
         <maven-shade.version>3.6.0</maven-shade.version>
 
@@ -83,8 +83,8 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ecocode-rules-specifications</artifactId>
-            <version>${ecocode-rules-specifications.version}</version>
+            <artifactId>creedengo-rules-specifications</artifactId>
+            <version>${creedengo-rules-specifications.version}</version>
             <classifier>php</classifier>
         </dependency>
 
@@ -186,7 +186,7 @@
                 <version>${sonar-packaging.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <pluginKey>ecocodephp</pluginKey>
+                    <pluginKey>creedengophp</pluginKey>
                     <pluginClass>fr.greencodeinitiative.php.PHPPlugin</pluginClass>
                     <sonarLintSupported>true</sonarLintSupported>
                     <pluginApiMinVersion>${sonarqube.version}</pluginApiMinVersion>
@@ -258,7 +258,7 @@
                 <configuration>
                     <properties>
                         <owner>Green Code Initiative</owner>
-                        <email>https://www.ecocode.io</email>
+                        <email>https://green-code-initiative.org</email>
                     </properties>
                     <licenseSets>
                         <licenseSet>

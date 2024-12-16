@@ -1,6 +1,6 @@
 /*
- * ecoCode - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://www.ecocode.io)
+ * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,8 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
 import java.util.regex.Pattern;
 
-@Rule(key = "EC4")
+@Rule(key = "GCI4")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC4")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "D4")
 public class AvoidUsingGlobalVariablesCheck extends PHPVisitorCheck {
 
