@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [#34](https://github.com/green-code-initiative/creedengo-php/issues/34) Add test to ensure all Rules are registered
+- [#38](https://github.com/green-code-initiative/creedengo-php/pull/38) migration from ecocode to creedengo - rules renaming
+- migration from ecocode to creedengo - all over the code
 
 ### Deleted
 
