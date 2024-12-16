@@ -1,6 +1,6 @@
 /*
  * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://green-code-initiative.org)
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,9 +51,9 @@ class PhpRuleRepositoryTest {
     @Test
     @DisplayName("Test repository metadata")
     void testMetadata() {
-        assertThat(repository.name()).isEqualTo("ecoCode");
+        assertThat(repository.name()).isEqualTo("creedengo");
         assertThat(repository.language()).isEqualTo("php");
-        assertThat(repository.key()).isEqualTo("ecocode-php");
+        assertThat(repository.key()).isEqualTo("creedengo-php");
     }
 
     @Test
@@ -69,11 +69,11 @@ class PhpRuleRepositoryTest {
     }
 
     @Test
-    @DisplayName("All rule keys must be prefixed by 'EC'")
+    @DisplayName("All rule keys must be prefixed by 'GCI'")
     void testRuleKeyPrefix() {
         SoftAssertions assertions = new SoftAssertions();
         repository.rules().forEach(
-                rule -> assertions.assertThat(rule.key()).startsWith("EC")
+                rule -> assertions.assertThat(rule.key()).startsWith("GCI")
         );
         assertions.assertAll();
     }

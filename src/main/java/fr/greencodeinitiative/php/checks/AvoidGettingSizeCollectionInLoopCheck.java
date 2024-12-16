@@ -1,6 +1,6 @@
 /*
  * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://green-code-initiative.org)
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-@Rule(key = "EC3")
+@Rule(key = "GCI3")
 public class AvoidGettingSizeCollectionInLoopCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Avoid getting the size of the collection in the loop";

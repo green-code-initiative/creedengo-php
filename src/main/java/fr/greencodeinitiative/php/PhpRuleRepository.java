@@ -1,6 +1,6 @@
 /*
  * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://green-code-initiative.org)
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,9 +41,9 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
     );
 
     private static final String LANGUAGE = "php";
-    private static final String NAME = "ecoCode";
-    private static final String RESOURCE_BASE_PATH = "io/ecocode/rules/php";
-    private static final String REPOSITORY_KEY = "ecocode-php";
+    private static final String NAME = "creedengo";
+    private static final String RESOURCE_BASE_PATH = "org/green-code-initiative/rules/php";
+    private static final String REPOSITORY_KEY = "creedengo-php";
 
     private final SonarRuntime sonarRuntime;
 

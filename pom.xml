@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.ecocode</groupId>
+    <groupId>org.green-code-initiative</groupId>
     <artifactId>creedengo-php-plugin</artifactId>
     <version>1.5.2-SNAPSHOT</version>
 
@@ -11,7 +11,7 @@
 
     <name>creedengo - PHP language</name>
     <description>Provides rules to reduce the environmental footprint of your PHP programs</description>
-    <inceptionYear>2023</inceptionYear>
+    <inceptionYear>2024</inceptionYear>
 
     <url>https://github.com/green-code-initiative/creedengo-php</url>
     <organization>
@@ -65,7 +65,7 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <ecocode-rules-specifications.version>1.6.2</ecocode-rules-specifications.version>
+        <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
 
         <maven-shade.version>3.6.0</maven-shade.version>
 
@@ -83,8 +83,8 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ecocode-rules-specifications</artifactId>
-            <version>${ecocode-rules-specifications.version}</version>
+            <artifactId>creedengo-rules-specifications</artifactId>
+            <version>${creedengo-rules-specifications.version}</version>
             <classifier>php</classifier>
         </dependency>
 

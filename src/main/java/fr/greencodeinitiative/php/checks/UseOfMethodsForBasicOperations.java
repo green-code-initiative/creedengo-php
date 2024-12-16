@@ -1,6 +1,6 @@
 /*
  * creedengo - PHP language - Provides rules to reduce the environmental footprint of your PHP programs
- * Copyright © 2023 Green Code Initiative (https://green-code-initiative.org)
+ * Copyright © 2024 Green Code Initiative (https://green-code-initiative.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ import org.sonar.plugins.php.api.tree.statement.StatementTree;
 import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
 import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
-@Rule(key = "EC22")
+@Rule(key = "GCI22")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "D2")
 public class UseOfMethodsForBasicOperations extends PHPSubscriptionCheck {
 
