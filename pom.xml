@@ -59,7 +59,7 @@
 
         <sonarphp.version>3.36.0.11813</sonarphp.version>
 
-        <sonar-analyzer-commons.version>2.11.0.2861</sonar-analyzer-commons.version>
+        <sonar-analyzer-commons.version>2.16.0.3141</sonar-analyzer-commons.version>
 
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
