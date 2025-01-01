@@ -55,7 +55,7 @@
         <!--<sonarqube.version>10.7.0.2191</sonarqube.version>-->
 
         <!-- max version accepted by SonarQube 9.9.0 -->
-        <sonarqube.version>9.14.0.375</sonarqube.version>
+        <sonarqube.version>11.0.0.2664</sonarqube.version>
 
         <sonarphp.version>3.36.0.11813</sonarphp.version>
 
