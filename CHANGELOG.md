@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - check SonarQube 10.7 version compatibility
+- update some libraries versions
 
 ### Deleted
 
