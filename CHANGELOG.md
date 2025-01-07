@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - check SonarQube 10.7 version compatibility
 - update some libraries versions
 - update sonarqube version to 24.12.0
+- upgrade actions/upload-artifact and actions/download-artifact from v3 to v4
 
 ### Deleted
 
