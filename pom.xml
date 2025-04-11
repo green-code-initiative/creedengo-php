@@ -112,8 +112,9 @@
         <!-- To keep because of dependency used by sonar-analyzer-commons for Unit Tests -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>2.0.13</version>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.17</version>
+            <!-- To keep with this scope otherwise logging system will be not ok on custom plugins -->
             <scope>provided</scope>
         </dependency>
 
