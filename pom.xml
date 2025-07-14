@@ -64,7 +64,7 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
+        <creedengo-rules-specifications.version>2.3.0</creedengo-rules-specifications.version>
 
         <maven-shade.version>3.6.0</maven-shade.version>
 
