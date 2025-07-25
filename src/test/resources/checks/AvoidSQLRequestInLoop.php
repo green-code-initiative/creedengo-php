@@ -72,9 +72,4 @@ class AvoidFullSQLRequest
             ++$nbOfRequest;
         } while ($expectedNbOfRequest > $nbOfRequest);
     }
-
-    private function emptyLoop()
-    {
-        for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
-    }
 }
