@@ -154,7 +154,7 @@ public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
         // if multiple conditions, continue with each part of complex expression
         if (pBinExprTree.is(Kind.CONDITIONAL_AND) || pBinExprTree.is(Kind.CONDITIONAL_OR)) {
             if (pBinExprTree.leftOperand() instanceof BinaryExpressionTree) {
-                computeConditionVariables((BinaryExpressionTree)pBinExprTree.leftOperand(), pLevel);
+                computeConditionVariables((BinaryExpressionTree) pBinExprTree.leftOperand(), pLevel);
             }
             if (pBinExprTree.rightOperand() instanceof BinaryExpressionTree) {
                 computeConditionVariables((BinaryExpressionTree)pBinExprTree.rightOperand(), pLevel);
