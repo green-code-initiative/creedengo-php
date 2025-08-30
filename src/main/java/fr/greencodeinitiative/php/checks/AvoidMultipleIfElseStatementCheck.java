@@ -229,7 +229,7 @@ public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
         ExpressionTree expr = pElseIfTree.condition().expression();
         if (expr instanceof BinaryExpressionTree) {
-            computeConditionVariables((BinaryExpressionTree)expr, pLevel);
+            computeConditionVariables((BinaryExpressionTree) expr, pLevel);
         }
 
     }
