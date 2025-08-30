@@ -51,15 +51,17 @@
         <sonar.organization>green-code-initiative</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
-        <!-- max version accepted by SonarQube 10.6.0 but not by 9.9.0 -->
-        <!--<sonarqube.version>10.7.0.2191</sonarqube.version>-->
+        <!-- Minimal version of the SonarQube APIs for `creedengo-php-plugin`  -->
+        <sonarqube-plugin-api-min.version>9.14.0.375</sonarqube-plugin-api-min.version>
 
-        <!-- max version accepted by SonarQube 9.9.0 -->
-        <sonarqube.version>9.14.0.375</sonarqube.version>
+        <!-- Version of the SonarQube APIs used by `creedengo-php-plugin` -->
+<!--        <sonar.plugin.api.version>11.4.0.2922</sonar.plugin.api.version>-->
+        <sonar.plugin.api.version>13.0.0.3026</sonar.plugin.api.version>
 
         <!-- max version that all is OK with JDK 11 -->
         <sonarphp.version>3.34.0.11311</sonarphp.version>
         <!-- version already checked that all is OK with JDK 17 -->
+        <sonarphp.version>3.38.0.12239</sonarphp.version>
 <!--        <sonarphp.version>3.36.0.11813</sonarphp.version>-->
 
         <sonar-analyzer-commons.version>2.16.0.3141</sonar-analyzer-commons.version>
@@ -67,9 +69,8 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>2.0.0</creedengo-rules-specifications.version>
-
-        <maven-shade.version>3.6.0</maven-shade.version>
+        <creedengo-rules-specifications.version>2.2.2</creedengo-rules-specifications.version>
+<!--        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>-->
 
         <junit.jupiter.version>5.11.4</junit.jupiter.version>
 
@@ -77,7 +78,30 @@
 
         <mockito.version>5.14.2</mockito.version>
 
-        <jacoco.version>0.8.12</jacoco.version>
+        <!-- URL of the Maven repository where sonarqube will be downloaded -->
+        <test-it.orchestrator.artifactory.url>https://repo1.maven.org/maven2</test-it.orchestrator.artifactory.url>
+        <!-- You can override this property to keep SonarQube instance running and to manually use it -->
+        <test-it.sonarqube.keepRunning>false</test-it.sonarqube.keepRunning>
+
+        <!-- Version of `sonarqube` used by integration tests (you can override this value to perform matrix compatibility tests) -->
+        <!--        <test-it.sonarqube.version>9.9.0.65466</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>9.9.8.100196</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>10.1.0.73245</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>10.1.0.73491</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>10.2.0.77647</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>10.7.0.96327</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>24.12.0.100206</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>25.1.0.102122</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>25.2.0.102705</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>25.3.0.104237</test-it.sonarqube.version>-->
+        <!--        <test-it.sonarqube.version>25.4.0.105899</test-it.sonarqube.version>-->
+        <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>
+
+        <!-- Version of `sonar-java-plugin` used by integration tests (you can override this value to perform matrix compatibility tests) -->
+        <test-it.sonarphp.version>${sonarphp.version}</test-it.sonarphp.version>
+
+        <!-- SonarQube server listening port. Leave this property blank to automatically choose an available port. -->
+        <test-it.sonarqube.port />
 
     </properties>
 
@@ -101,7 +125,7 @@
         <dependency>
             <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
-            <version>${sonarqube.version}</version>
+            <version>${sonar.plugin.api.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -150,6 +174,44 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Dependencies used by integration tests -->
+        <dependency>
+            <groupId>org.sonarsource.orchestrator</groupId>
+            <artifactId>sonar-orchestrator-junit5</artifactId>
+            <version>5.6.1.2597</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.java</groupId>
+            <artifactId>test-classpath-reader</artifactId>
+            <version>8.8.0.37665</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.sonarsource.sonarqube</groupId>
+            <artifactId>sonar-ws</artifactId>
+            <version>${test-it.sonarqube.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.jycr</groupId>
+            <artifactId>java-data-url-handler</artifactId>
+            <version>0.0.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.6</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.36</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -162,12 +224,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.5.2</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
+                <version>0.8.12</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -192,7 +254,7 @@
                     <pluginKey>creedengophp</pluginKey>
                     <pluginClass>fr.greencodeinitiative.php.PHPPlugin</pluginClass>
                     <sonarLintSupported>true</sonarLintSupported>
-                    <pluginApiMinVersion>${sonarqube.version}</pluginApiMinVersion>
+                    <pluginApiMinVersion>${sonarqube-plugin-api-min.version}</pluginApiMinVersion>
                     <skipDependenciesPackaging>true</skipDependenciesPackaging>
                     <jreMinVersion>${java.version}</jreMinVersion>
                     <requiredForLanguages>php</requiredForLanguages>
@@ -207,7 +269,7 @@
                 <!-- plugin to generate a unique build number for sonar-packaging-maven-plugin : usage of buildNumber variable -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -225,7 +287,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven-shade.version}</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -255,8 +317,77 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <!-- only for unit tests ("test-jars" directory used in classpath) -->
+                    <execution>
+                        <id>copy</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.slf4j</groupId>
+                                    <artifactId>slf4j-api</artifactId>
+                                    <version>1.7.30</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.commons</groupId>
+                                    <artifactId>commons-collections4</artifactId>
+                                    <version>4.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.springframework</groupId>
+                                    <artifactId>spring-webmvc</artifactId>
+                                    <version>5.2.3.RELEASE</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.springframework</groupId>
+                                    <artifactId>spring-web</artifactId>
+                                    <version>5.2.3.RELEASE</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.springframework</groupId>
+                                    <artifactId>spring-context</artifactId>
+                                    <version>5.2.3.RELEASE</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.springframework.data</groupId>
+                                    <artifactId>spring-data-jpa</artifactId>
+                                    <version>2.2.4.RELEASE</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.springframework.data</groupId>
+                                    <artifactId>spring-data-commons</artifactId>
+                                    <version>2.2.4.RELEASE</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                            <outputDirectory>${project.build.directory}/test-jars</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
+                <!-- max version without pb for JDK 17 / recent versions have a NPE when deploying in docker -->
                 <version>4.1</version>
                 <configuration>
                     <properties>
@@ -269,6 +400,9 @@
                             <includes>
                                 <include>**/*.java</include>
                             </includes>
+                            <excludes>
+                                <exclude>${project.basedir}/src/it/test-projects/**</exclude>
+                            </excludes>
                         </licenseSet>
                     </licenseSets>
                 </configuration>
@@ -282,6 +416,95 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- activate integration tests -->
+            <plugin>
+                <!-- add integration test sources into test classpath -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>add-integration-test-sources</id>
+                        <phase>process-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/it/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>add-integration-test-resources</id>
+                        <phase>generate-test-resources</phase>
+                        <goals>
+                            <goal>add-test-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/it/resources</directory>
+                                </resource>
+                                <resource>
+                                    <filtering>true</filtering>
+                                    <directory>${project.basedir}/src/it/resources-filtered</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- Execute integration tests -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.5.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <test-it.sonarqube.keepRunning>${test-it.sonarqube.keepRunning}</test-it.sonarqube.keepRunning>
+                                <test-it.orchestrator.artifactory.url>${test-it.orchestrator.artifactory.url}</test-it.orchestrator.artifactory.url>
+                                <test-it.sonarqube.version>${test-it.sonarqube.version}</test-it.sonarqube.version>
+                                <test-it.sonarqube.port>${test-it.sonarqube.port}</test-it.sonarqube.port>
+                                <!-- Comma separated list of plugins (`groupId|artifactId|version` or `file:///`) to install in SonarQube instance before lunching integration tests -->
+                                <test-it.plugins>
+                                    ${project.baseUri}/target/${project.artifactId}-${project.version}.jar,
+                                    org.sonarsource.php:sonar-php-plugin:${test-it.sonarphp.version},
+                                </test-it.plugins>
+                                <!-- Comma separated JSON profile file URIs to load -->
+                                <test-it.additional-profile-uris>
+                                    ${project.baseUri}/src/main/resources/org/greencodeinitiative/creedengo/php/creedengo_way_profile.json,
+                                </test-it.additional-profile-uris>
+                                <!-- Comma separated paths of "test projects" to analyze. Syntaxe: `sonar.projectKey|sonar.projectName|project.pomUri` -->
+                                <test-it.test-projects>
+                                    org.green-code-initiative:creedengo-php-plugin-test-project|creedengo PHP Sonar Plugin Test Project|${project.baseUri}/src/it/test-projects/creedengo-php-plugin-test-project/pom.xml,
+                                </test-it.test-projects>
+                                <!-- Comma separated list of profiles to associate to each "test project". Syntaxe: `language:profileName` -->
+                                <test-it.test-project-profile-by-language>
+                                    php|creedengo way,
+                                </test-it.test-project-profile-by-language>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>keep-running</id>
+            <properties>
+                <test-it.sonarqube.keepRunning>true</test-it.sonarqube.keepRunning>
+                <!--                <test-it.sonarqube.port>9000</test-it.sonarqube.port>-->
+                <test-it.sonarqube.port>33333</test-it.sonarqube.port>
+            </properties>
+        </profile>
+    </profiles>
 </project>
