@@ -40,7 +40,7 @@
 
     <properties>
 
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
@@ -57,7 +57,10 @@
         <!-- max version accepted by SonarQube 9.9.0 -->
         <sonarqube.version>9.14.0.375</sonarqube.version>
 
-        <sonarphp.version>3.36.0.11813</sonarphp.version>
+        <!-- max version that all is OK with JDK 11 -->
+        <sonarphp.version>3.34.0.11311</sonarphp.version>
+        <!-- version already checked that all is OK with JDK 17 -->
+<!--        <sonarphp.version>3.36.0.11813</sonarphp.version>-->
 
         <sonar-analyzer-commons.version>2.16.0.3141</sonar-analyzer-commons.version>
 
@@ -254,7 +257,7 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>4.5</version>
+                <version>4.1</version>
                 <configuration>
                     <properties>
                         <owner>Green Code Initiative</owner>

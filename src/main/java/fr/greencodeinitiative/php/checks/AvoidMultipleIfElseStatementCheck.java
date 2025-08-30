@@ -138,8 +138,8 @@ public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
         // analysing content of conditions of IF node
         ExpressionTree expr = pIfTree.condition().expression();
-        if (expr instanceof BinaryExpressionTree bet) {
-            computeConditionVariables(bet, pLevel);
+        if (expr instanceof BinaryExpressionTree) {
+            computeConditionVariables((BinaryExpressionTree) expr, pLevel);
         }
 
     }
@@ -153,11 +153,11 @@ public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
         // if multiple conditions, continue with each part of complex expression
         if (pBinExprTree.is(Kind.CONDITIONAL_AND) || pBinExprTree.is(Kind.CONDITIONAL_OR)) {
-            if (pBinExprTree.leftOperand() instanceof BinaryExpressionTree bet) {
-                computeConditionVariables(bet, pLevel);
+            if (pBinExprTree.leftOperand() instanceof BinaryExpressionTree) {
+                computeConditionVariables((BinaryExpressionTree)pBinExprTree.leftOperand(), pLevel);
             }
-            if (pBinExprTree.rightOperand() instanceof BinaryExpressionTree bet) {
-                computeConditionVariables(bet, pLevel);
+            if (pBinExprTree.rightOperand() instanceof BinaryExpressionTree) {
+                computeConditionVariables((BinaryExpressionTree)pBinExprTree.rightOperand(), pLevel);
             }
         } else if (pBinExprTree.is(Kind.EQUAL_TO)
                 || pBinExprTree.is(Kind.NOT_EQUAL_TO)
@@ -228,8 +228,8 @@ public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
         if (pElseIfTree.condition() == null) return;
 
         ExpressionTree expr = pElseIfTree.condition().expression();
-        if (expr instanceof BinaryExpressionTree bet) {
-            computeConditionVariables(bet, pLevel);
+        if (expr instanceof BinaryExpressionTree) {
+            computeConditionVariables((BinaryExpressionTree)expr, pLevel);
         }
 
     }
