@@ -104,18 +104,6 @@ class GCIRulesIT extends GCIRulesBase {
     }
 
     @Test
-    void testGCI66() {
-
-        String filePath = "src/AvoidDoubleQuote.php";
-        String ruleId = "creedengo-php:GCI66";
-        String ruleMsg = "Avoid using double quote (\"), prefer using simple quote (')";
-        int[] startLines = new int[]{4, 14, 22, 26};
-        int[] endLines = new int[]{4, 14, 22, 26};
-
-        checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
-    }
-
-    @Test
     void testGCI67() {
 
         String filePath = "src/IncrementCheck.php";

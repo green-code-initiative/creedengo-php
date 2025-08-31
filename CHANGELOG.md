@@ -9,9 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- add integration test system (with integration of creedengo-php-plugin-test repository sources)
+
 ### Changed
 
+- update internal librairies versions
+
 ### Deleted
+
+- [#58](https://github.com/green-code-initiative/creedengo-php/issues/58) Deprecation and deletion of GCI66 rule for PHP
 
 ## [2.0.1] - 2025-03-14
 

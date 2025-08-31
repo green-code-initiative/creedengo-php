@@ -69,14 +69,9 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>2.2.2</creedengo-rules-specifications.version>
-<!--        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>-->
+        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>
 
         <junit.jupiter.version>5.11.4</junit.jupiter.version>
-
-        <assertj.version>3.27.0</assertj.version>
-
-        <mockito.version>5.14.2</mockito.version>
 
         <!-- URL of the Maven repository where sonarqube will be downloaded -->
         <test-it.orchestrator.artifactory.url>https://repo1.maven.org/maven2</test-it.orchestrator.artifactory.url>
@@ -156,14 +151,14 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
+            <version>3.27.4</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${mockito.version}</version>
+            <version>5.19.0</version>
             <scope>test</scope>
         </dependency>
 
