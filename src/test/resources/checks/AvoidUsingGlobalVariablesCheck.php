@@ -11,6 +11,7 @@ function somme2() // NOK {{Prefer local variables to globals}}
 {
     global $a, $b;
     $c = $a + $b;
+    return $c;
 }
 
 function somme3($c, $d) // Compliant

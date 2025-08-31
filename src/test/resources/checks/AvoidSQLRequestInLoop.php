@@ -22,7 +22,7 @@ class AvoidFullSQLRequest
     }
     private function init()
     {
-        $this->connection = mysql_connect($this->dbHost, $this->dbUser, $this->dbPass) or die("Unable to Connect to '$dbhost'");
+        $this->connection = mysql_connect($this->dbHost, $this->dbUser, $this->dbPass) or die("Unable to Connect to '\$dbhost'");
         mysql_select_db($this->dbName) or die("Could not open the db '$this->dbName'");
     }
 
@@ -71,10 +71,5 @@ class AvoidFullSQLRequest
             echo $result;
             ++$nbOfRequest;
         } while ($expectedNbOfRequest > $nbOfRequest);
-    }
-
-    private function emptyLoop()
-    {
-        for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
     }
 }
