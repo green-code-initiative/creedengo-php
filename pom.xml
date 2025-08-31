@@ -67,8 +67,7 @@
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>2.2.2</creedengo-rules-specifications.version>
-<!--        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>-->
+        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>
 
         <junit.jupiter.version>5.11.4</junit.jupiter.version>
 
