@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
+import static java.lang.System.Logger.Level.INFO;
 
 /**
  * Manage XML Backup file of profile based on JSON official profile.
@@ -70,6 +71,9 @@ import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKN
  * </pre>
  */
 public class ProfileBackup {
+
+    private static final System.Logger LOGGER = System.getLogger(ProfileBackup.class.getName());
+
 	private static final MessageFormat TEMPLATE_PROFIL = new MessageFormat(
 			"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
 					"<profile>\n" +
@@ -115,12 +119,18 @@ public class ProfileBackup {
 	}
 
 	private RuleMetadata loadRule(String language, String ruleKey) {
+        LOGGER.log(INFO, () ->
+                MessageFormat.format(
+                        "Loading rule {0} from rules list JSON file",
+                        ruleKey
+                )
+        );
 		try (InputStream ruleMetadataJsonFile = ClassLoader.getSystemResourceAsStream("org/green-code-initiative/rules/" + language + "/" + ruleKey + ".json")) {
 			RuleMetadata result = mapper.readValue(ruleMetadataJsonFile, RuleMetadata.class);
 			result.setKey(ruleKey);
 			return result;
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException("Error during loading rules list from JSON file : error with rule " + ruleKey, e);
 		}
 	}
 
