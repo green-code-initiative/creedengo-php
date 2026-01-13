@@ -43,6 +43,8 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- to prevent message: system modules path not set in conjunction with -source 11 -->
+        <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -68,10 +70,10 @@
         <!-- temporary version waiting for real automatic release in creedengo repository -->
         <creedengo-rules-specifications.version>2.6.7</creedengo-rules-specifications.version>
 
-        <junit.jupiter.version>5.11.4</junit.jupiter.version>
+        <junit.jupiter.version>5.13.4</junit.jupiter.version>
 
         <!-- URL of the Maven repository where sonarqube will be downloaded -->
-        <test-it.orchestrator.artifactory.url>https://repo1.maven.org/maven2</test-it.orchestrator.artifactory.url>
+<!--        <test-it.orchestrator.artifactory.url>https://repo1.maven.org/maven2</test-it.orchestrator.artifactory.url>-->
         <!-- You can override this property to keep SonarQube instance running and to manually use it -->
         <test-it.sonarqube.keepRunning>false</test-it.sonarqube.keepRunning>
 
@@ -184,17 +186,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>3.5.3</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
+                <version>0.8.13</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -299,37 +301,37 @@
                                 <artifactItem>
                                     <groupId>org.slf4j</groupId>
                                     <artifactId>slf4j-api</artifactId>
-                                    <version>1.7.30</version>
+                                    <version>2.0.17</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.apache.commons</groupId>
                                     <artifactId>commons-collections4</artifactId>
-                                    <version>4.0</version>
+                                    <version>4.5.0</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>javax</groupId>
                                     <artifactId>javaee-api</artifactId>
-                                    <version>6.0</version>
+                                    <version>8.0.1</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-webmvc</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-web</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-context</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
@@ -341,7 +343,8 @@
                                 <artifactItem>
                                     <groupId>org.springframework.data</groupId>
                                     <artifactId>spring-data-commons</artifactId>
-                                    <version>2.2.4.RELEASE</version>
+                                    <version>2.7.18</version>
+                                    <!-- KO with version 3.x -->
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
@@ -364,7 +367,7 @@
                         <licenseSet>
                             <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
                             <includes>
-                                <include>**/*.java</include>
+                                <include>${project.basedir}/src/**/*.java</include>
                             </includes>
                             <excludes>
                                 <exclude>${project.basedir}/src/it/test-projects/**</exclude>
