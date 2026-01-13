@@ -88,7 +88,8 @@
         <!--        <test-it.sonarqube.version>25.2.0.102705</test-it.sonarqube.version>-->
         <!--        <test-it.sonarqube.version>25.3.0.104237</test-it.sonarqube.version>-->
         <!--        <test-it.sonarqube.version>25.4.0.105899</test-it.sonarqube.version>-->
-        <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>
+        <!--        <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>-->
+        <test-it.sonarqube.version>26.1.0.118079</test-it.sonarqube.version>
 
         <!-- Version of `sonar-java-plugin` used by integration tests (you can override this value to perform matrix compatibility tests) -->
         <test-it.sonarphp.version>${sonarphp.version}</test-it.sonarphp.version>
@@ -171,45 +172,9 @@
         <dependency>
             <groupId>org.green-code-initiative</groupId>
             <artifactId>creedengo-integration-test</artifactId>
-            <version>main-SNAPSHOT</version>
+            <version>0.2.1</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.sonarsource.orchestrator</groupId>-->
-<!--            <artifactId>sonar-orchestrator-junit5</artifactId>-->
-<!--            <version>5.6.1.2597</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.sonarsource.java</groupId>-->
-<!--            <artifactId>test-classpath-reader</artifactId>-->
-<!--            <version>8.8.0.37665</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.sonarsource.sonarqube</groupId>-->
-<!--            <artifactId>sonar-ws</artifactId>-->
-<!--            <version>${test-it.sonarqube.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.github.jycr</groupId>-->
-<!--            <artifactId>java-data-url-handler</artifactId>-->
-<!--            <version>0.0.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>ch.qos.logback</groupId>-->
-<!--            <artifactId>logback-classic</artifactId>-->
-<!--            <version>1.5.6</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <version>1.18.36</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
 
     </dependencies>
 
