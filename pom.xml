@@ -43,10 +43,11 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- to prevent message: system modules path not set in conjunction with -source 11 -->
+        <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <encoding>UTF-8</encoding>
-        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <sonar.organization>green-code-initiative</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -62,14 +63,14 @@
         <sonarphp.version>3.38.0.12239</sonarphp.version>
 <!--        <sonarphp.version>3.36.0.11813</sonarphp.version>-->
 
-        <sonar-analyzer-commons.version>2.16.0.3141</sonar-analyzer-commons.version>
+        <sonar-analyzer-commons.version>2.18.0.3393</sonar-analyzer-commons.version>
 
         <sonar-packaging.version>1.23.0.740</sonar-packaging.version>
 
         <!-- temporary version waiting for real automatic release in creedengo repository -->
-        <creedengo-rules-specifications.version>2.5.0</creedengo-rules-specifications.version>
+        <creedengo-rules-specifications.version>2.6.7</creedengo-rules-specifications.version>
 
-        <junit.jupiter.version>5.11.4</junit.jupiter.version>
+        <junit.jupiter.version>5.13.4</junit.jupiter.version>
 
         <!-- URL of the Maven repository where sonarqube will be downloaded -->
         <test-it.orchestrator.artifactory.url>https://repo1.maven.org/maven2</test-it.orchestrator.artifactory.url>
@@ -88,7 +89,10 @@
         <!--        <test-it.sonarqube.version>25.2.0.102705</test-it.sonarqube.version>-->
         <!--        <test-it.sonarqube.version>25.3.0.104237</test-it.sonarqube.version>-->
         <!--        <test-it.sonarqube.version>25.4.0.105899</test-it.sonarqube.version>-->
-        <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>
+<!--                <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>-->
+<!--                <test-it.sonarqube.version>25.9.0.112764</test-it.sonarqube.version>-->
+                <test-it.sonarqube.version>25.12.0.117093</test-it.sonarqube.version>
+<!--        <test-it.sonarqube.version>26.1.0.118079</test-it.sonarqube.version>-->
 
         <!-- Version of `sonar-java-plugin` used by integration tests (you can override this value to perform matrix compatibility tests) -->
         <test-it.sonarphp.version>${sonarphp.version}</test-it.sonarphp.version>
@@ -169,39 +173,9 @@
 
         <!-- Dependencies used by integration tests -->
         <dependency>
-            <groupId>org.sonarsource.orchestrator</groupId>
-            <artifactId>sonar-orchestrator-junit5</artifactId>
-            <version>5.6.1.2597</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>test-classpath-reader</artifactId>
-            <version>8.8.0.37665</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
-            <artifactId>sonar-ws</artifactId>
-            <version>${test-it.sonarqube.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.github.jycr</groupId>
-            <artifactId>java-data-url-handler</artifactId>
-            <version>0.0.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.5.6</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
+            <groupId>org.green-code-initiative</groupId>
+            <artifactId>creedengo-integration-test</artifactId>
+            <version>0.2.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -212,17 +186,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>3.5.3</version>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
+                <version>0.8.13</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -232,6 +206,7 @@
                     </execution>
                     <execution>
                         <id>report</id>
+                        <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -326,37 +301,37 @@
                                 <artifactItem>
                                     <groupId>org.slf4j</groupId>
                                     <artifactId>slf4j-api</artifactId>
-                                    <version>1.7.30</version>
+                                    <version>2.0.17</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.apache.commons</groupId>
                                     <artifactId>commons-collections4</artifactId>
-                                    <version>4.0</version>
+                                    <version>4.5.0</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>javax</groupId>
                                     <artifactId>javaee-api</artifactId>
-                                    <version>6.0</version>
+                                    <version>8.0.1</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-webmvc</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-web</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
                                     <groupId>org.springframework</groupId>
                                     <artifactId>spring-context</artifactId>
-                                    <version>5.2.3.RELEASE</version>
+                                    <version>6.2.10</version>
                                     <type>jar</type>
                                 </artifactItem>
                                 <artifactItem>
@@ -368,7 +343,8 @@
                                 <artifactItem>
                                     <groupId>org.springframework.data</groupId>
                                     <artifactId>spring-data-commons</artifactId>
-                                    <version>2.2.4.RELEASE</version>
+                                    <version>2.7.18</version>
+                                    <!-- KO with version 3.x -->
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
@@ -391,7 +367,7 @@
                         <licenseSet>
                             <header>com/mycila/maven/plugin/license/templates/GPL-3.txt</header>
                             <includes>
-                                <include>**/*.java</include>
+                                <include>${project.basedir}/src/**/*.java</include>
                             </includes>
                             <excludes>
                                 <exclude>${project.basedir}/src/it/test-projects/**</exclude>
@@ -414,7 +390,7 @@
                 <!-- add integration test sources into test classpath -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.6.1</version>
                 <executions>
                     <execution>
                         <id>add-integration-test-sources</id>
@@ -452,7 +428,7 @@
                 <!-- Execute integration tests -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>3.5.3</version>
                 <executions>
                     <execution>
                         <goals>
