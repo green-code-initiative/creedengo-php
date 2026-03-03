@@ -27,6 +27,8 @@ import org.junit.jupiter.api.Test;
 import org.sonarqube.ws.Issues;
 import org.sonarqube.ws.Measures;
 
+import org.greencodeinitiative.creedengo.integration.tests.GCIRulesBase;
+
 class GCIRulesIT extends GCIRulesBase {
 
     @Test
