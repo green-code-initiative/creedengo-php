@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- add integration test system (with integration of creedengo-php-plugin-test repository sources)
-
 ### Changed
 
 - update internal librairies versions
+- update integration tests system to use the new component "creedengo-integration-test"
+- update sonarqube version to 25.12.0
 
 ### Deleted
 
