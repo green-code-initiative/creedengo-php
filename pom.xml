@@ -66,12 +66,10 @@
         <sonarqube-plugin-api-min.version>9.14.0.375</sonarqube-plugin-api-min.version>
 
         <!-- Version of the SonarQube APIs used by `creedengo-php-plugin` -->
-<!--        <sonar.plugin.api.version>11.4.0.2922</sonar.plugin.api.version>-->
         <sonar.plugin.api.version>13.5.0.4319</sonar.plugin.api.version>
 
         <!-- max version compatible for JDK 17 -->
         <sonarphp.version>3.38.0.12239</sonarphp.version>
-<!--        <sonarphp.version>3.36.0.11813</sonarphp.version>-->
 
         <sonar-analyzer-commons.version>2.21.0.4626</sonar-analyzer-commons.version>
 
@@ -139,6 +137,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- version explicitly set for security raised by github -->
+        <!-- to delete when sonar-php-plugin will provide this version at minimum -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.18.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.sonarsource.api.plugin</groupId>
             <artifactId>sonar-plugin-api</artifactId>
@@ -196,6 +202,33 @@
             <groupId>org.green-code-initiative</groupId>
             <artifactId>creedengo-integration-test</artifactId>
             <version>0.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- version explicitly set for security raised by github -->
+        <!-- to delete when sonar-orchestrator will provide this version at minimum -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.18.6</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- version explicitly set for security raised by github -->
+        <!-- to delete when sonar-orchestrator will provide this version at minimum -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.4.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- version explicitly set for security raised by github -->
+        <!-- to delete when sonar-orchestrator will provide this version at minimum -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.14.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -364,7 +397,6 @@
                                     <groupId>org.springframework.data</groupId>
                                     <artifactId>spring-data-commons</artifactId>
                                     <version>4.0.3</version>
-                                    <!-- KO with version 3.x -->
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
