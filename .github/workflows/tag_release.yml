@@ -48,18 +48,15 @@ jobs:
           fi
           echo "Tag utilisé : $RELEASE_TAG"
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_ENV
-
-      - name: Checkout tag "${{ env.release_tag }}"
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ env.release_tag }}
+          # Checkout le tag pour que maven-git-versioning-extension le détecte
+          git checkout "refs/tags/$RELEASE_TAG"
 
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Build project
-        run: mvn -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
+        run: ./mvnw -e -B clean package -DskipTests
 
       - name: Resolve JAR filename
         id: resolve_jar
