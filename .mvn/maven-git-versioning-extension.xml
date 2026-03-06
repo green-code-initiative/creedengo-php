@@ -1,4 +1,5 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://github.com/qoomon/maven-git-versioning-extension" xsi:schemaLocation="https://github.com/qoomon/maven-git-versioning-extension https://qoomon.github.io/maven-git-versioning-extension/configuration-7.0.0.xsd">
+    <preferTags>true</preferTags>
     <refs>
         <ref type="branch">
             <pattern>.+</pattern>
@@ -16,3 +17,4 @@
         <version>${commit}</version>
     </rev>
 </configuration>
+
