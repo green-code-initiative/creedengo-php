@@ -88,24 +88,31 @@
         <test-it.sonarqube.keepRunning>false</test-it.sonarqube.keepRunning>
 
         <!-- Version of `sonarqube` used by integration tests (you can override this value to perform matrix compatibility tests) -->
-        <!--        <test-it.sonarqube.version>9.9.0.65466</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>9.9.8.100196</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>10.1.0.73245</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>10.1.0.73491</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>10.2.0.77647</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>10.7.0.96327</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>24.12.0.100206</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>25.1.0.102122</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>25.2.0.102705</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>25.3.0.104237</test-it.sonarqube.version>-->
-        <!--        <test-it.sonarqube.version>25.4.0.105899</test-it.sonarqube.version>-->
-<!--                <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>-->
-<!--                <test-it.sonarqube.version>25.9.0.112764</test-it.sonarqube.version>-->
-                <test-it.sonarqube.version>25.12.0.117093</test-it.sonarqube.version>
+<!--        <test-it.sonarqube.version>9.9.0.65466</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>9.9.8.100196</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>10.0.0.68432</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>10.1.0.73491</test-it.sonarqube.version>-->
 
-        <!-- 26.1 KO because of compilation error : 26.1 was compiled with JDK 21-->
+        <!-- OK JDK17 but KO with JDK21 -->
+<!--        <test-it.sonarqube.version>10.2.0.77647</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>10.2.1.78527</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>10.5.1.90531</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>10.7.0.96327</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>25.1.0.102122</test-it.sonarqube.version>-->
+
+        <!-- OK JDK17 and JDK21 -->
+<!--        <test-it.sonarqube.version>25.2.0.102705</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>25.3.0.104237</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>25.5.0.107428</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>25.9.0.112764</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>25.11.0.114957</test-it.sonarqube.version>-->
+        <test-it.sonarqube.version>25.12.0.117093</test-it.sonarqube.version>
+
+        <!-- OK but only with jdk 21 -->
 <!--        <test-it.sonarqube.version>26.1.0.118079</test-it.sonarqube.version>-->
+<!--        <test-it.sonarqube.version>26.2.0.119303</test-it.sonarqube.version>-->
 <!--        <test-it.sonarqube.version>26.3.0.120487</test-it.sonarqube.version>-->
+
 
         <!-- Version of `sonar-java-plugin` used by integration tests (you can override this value to perform matrix compatibility tests) -->
         <test-it.sonarphp.version>${sonarphp.version}</test-it.sonarphp.version>
