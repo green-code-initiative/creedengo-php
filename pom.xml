@@ -67,7 +67,7 @@
 
         <!-- Version of the SonarQube APIs used by `creedengo-php-plugin` -->
 <!--        <sonar.plugin.api.version>11.4.0.2922</sonar.plugin.api.version>-->
-        <sonar.plugin.api.version>13.0.0.3026</sonar.plugin.api.version>
+        <sonar.plugin.api.version>13.5.0.4319</sonar.plugin.api.version>
 
         <!-- max version compatible for JDK 17 -->
         <sonarphp.version>3.38.0.12239</sonarphp.version>
