@@ -1,7 +1,7 @@
 name: Tag Release
 
 on:
-  # push:
+  #push:
   #  tags:
   #    - '[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
@@ -49,7 +49,7 @@ jobs:
           echo "Tag utilisé : $RELEASE_TAG"
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_ENV
 
-      - name: Checkout tag "${{ github.ref_name }}"
+      - name: Checkout tag "${{ env.release_tag }}"
         uses: actions/checkout@v3
         with:
           ref: ${{ env.release_tag }}
@@ -59,15 +59,15 @@ jobs:
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Build project
-        run: ./mvnw -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
+        run: mvn -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
 
       - name: Resolve JAR filename
         id: resolve_jar
         run: |
           JAR_FILE=$(ls target/creedengo-php-plugin-*.jar | grep -v original | head -n 1)
           if [ -z "$JAR_FILE" ]; then
-          echo "Aucun JAR trouvé dans target/"
-          exit 1
+            echo "Aucun JAR trouvé dans target/"
+            exit 1
           fi
           echo "JAR trouvé : $JAR_FILE"
           echo "jar_path=$JAR_FILE" >> $GITHUB_ENV
