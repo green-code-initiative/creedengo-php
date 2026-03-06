@@ -11,9 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+### Deleted
+
+## [2.1.0] - 2026-03-06
+
+### Changed
+
 - update internal librairies versions
 - update integration tests system to use the new component "creedengo-integration-test"
 - update sonarqube version to 25.12.0
+- technical optimization for dynamic versionning in maven (for next releases)
 
 ### Deleted
 
@@ -106,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Comparison list
 
-[unreleased](https://github.com/green-code-initiative/creedengo-php/compare/2.0.1...HEAD)
+[unreleased](https://github.com/green-code-initiative/creedengo-php/compare/2.1.0...HEAD)
+[2.1.0](https://github.com/green-code-initiative/creedengo-php/compare/2.0.1...2.1.0)
 [2.0.1](https://github.com/green-code-initiative/creedengo-php/compare/2.0.0...2.0.1)
 [2.0.0](https://github.com/green-code-initiative/creedengo-php/compare/1.5.1...2.0.0)
 [1.5.1](https://github.com/green-code-initiative/creedengo-php/compare/1.5.0...1.5.1)
