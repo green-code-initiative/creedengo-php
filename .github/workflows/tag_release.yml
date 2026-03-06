@@ -64,7 +64,7 @@ jobs:
       - name: Resolve JAR filename
         id: resolve_jar
         run: |
-          JAR_FILE=$(ls target/creedengo-pho-plugin-*.jar | grep -v original | head -n 1)
+          JAR_FILE=$(ls target/creedengo-php-plugin-*.jar | grep -v original | head -n 1)
           if [ -z "$JAR_FILE" ]; then
           echo "Aucun JAR trouvé dans target/"
           exit 1
