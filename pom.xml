@@ -363,7 +363,7 @@
                                 <artifactItem>
                                     <groupId>org.springframework.data</groupId>
                                     <artifactId>spring-data-commons</artifactId>
-                                    <version>2.7.18</version>
+                                    <version>4.0.3</version>
                                     <!-- KO with version 3.x -->
                                     <type>jar</type>
                                 </artifactItem>
