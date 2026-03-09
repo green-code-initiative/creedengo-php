@@ -48,29 +48,26 @@ jobs:
           fi
           echo "Tag utilisé : $RELEASE_TAG"
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_ENV
-          # Forcer la récupération des tags
-          git fetch --force --tags
-          # Checkout le tag pour que maven-git-versioning-extension le détecte
-          git checkout "refs/tags/$RELEASE_TAG"
-          # Vérification pour le débogage
-          echo "Vérification Git après checkout:"
-          git describe --tags --exact-match 2>/dev/null || echo "Attention: Git ne détecte pas le tag exactement"
-          git log -1 --oneline
+
+      - name: Checkout tag "${{ env.release_tag }}"
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.release_tag }}
 
       - name: Extract release notes
         id: extract-release-notes
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Build project
-        run: ./mvnw -e -B clean package -DskipTests
+        run: mvn -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
 
-      - name: Debug - Verify Maven version
-        run: |
-          echo "=== Version Maven détectée ==="
-          ./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout || echo "Erreur lors de la récupération de la version"
-          echo ""
-          echo "=== Fichiers JAR créés ==="
-          ls -la target/*.jar 2>/dev/null | grep -v original || echo "Aucun JAR trouvé"
+#      - name: Debug - Verify Maven version
+#        run: |
+#          echo "=== Version Maven détectée ==="
+#          ./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout || echo "Erreur lors de la récupération de la version"
+#          echo ""
+#          echo "=== Fichiers JAR créés ==="
+#          ls -la target/*.jar 2>/dev/null | grep -v original || echo "Aucun JAR trouvé"
 
       - name: Resolve JAR filename
         id: resolve_jar

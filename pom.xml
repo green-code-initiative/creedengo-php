@@ -5,7 +5,6 @@
     <groupId>org.green-code-initiative</groupId>
     <artifactId>creedengo-php-plugin</artifactId>
     <version>${revision}</version>
-
     <packaging>sonar-plugin</packaging>
 
     <name>creedengo - PHP language</name>
