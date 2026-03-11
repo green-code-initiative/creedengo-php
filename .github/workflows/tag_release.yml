@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag de la release à déployer (ex: 2.3.0). Laisser vide pour utiliser le dernier tag disponible.'
+        description: 'Release tag to deploy (e.g. 2.3.0). Leave empty to use the latest available tag.'
         required: false
         type: string
 
@@ -43,10 +43,10 @@ jobs:
             RELEASE_TAG=$(git tag --sort=-version:refname | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1)
           fi
           if [ -z "$RELEASE_TAG" ]; then
-            echo "Aucun tag trouvé. Veuillez en spécifier un en entrée."
+            echo "No tag found. Please specify one as input."
             exit 1
           fi
-          echo "Tag utilisé : $RELEASE_TAG"
+          echo "Tag used: $RELEASE_TAG"
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_ENV
 
       - name: Checkout tag "${{ env.release_tag }}"
@@ -60,26 +60,20 @@ jobs:
 
       - name: Build project
         env:
+          # the plugin maven-release-plugin uses the environment variable VERSIONING_GIT_REF to determine the version to use when building the project.
+          # By setting this variable to refs/tags/${{ env.release_tag }}, we are telling the plugin to use the specified tag as the project version.
           VERSIONING_GIT_REF: refs/tags/${{ env.release_tag }}
         run: mvn -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
-
-#      - name: Debug - Verify Maven version
-#        run: |
-#          echo "=== Version Maven détectée ==="
-#          ./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout || echo "Erreur lors de la récupération de la version"
-#          echo ""
-#          echo "=== Fichiers JAR créés ==="
-#          ls -la target/*.jar 2>/dev/null | grep -v original || echo "Aucun JAR trouvé"
 
       - name: Resolve JAR filename
         id: resolve_jar
         run: |
           JAR_FILE=$(ls target/creedengo-php-plugin-*.jar | grep -v original | head -n 1)
           if [ -z "$JAR_FILE" ]; then
-            echo "Aucun JAR trouvé dans target/"
+            echo "No JAR found in target/"
             exit 1
           fi
-          echo "JAR trouvé : $JAR_FILE"
+          echo "JAR found: $JAR_FILE"
           echo "jar_path=$JAR_FILE" >> $GITHUB_ENV
 
       - name: Create release and upload asset
