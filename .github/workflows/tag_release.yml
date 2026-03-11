@@ -59,6 +59,8 @@ jobs:
         uses: ffurrer2/extract-release-notes@v1
 
       - name: Build project
+        env:
+          VERSIONING_GIT_REF: refs/tags/${{ env.release_tag }}
         run: mvn -e -B clean package -DskipTests -Drevision=${{ env.release_tag }}
 
 #      - name: Debug - Verify Maven version
