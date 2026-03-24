@@ -29,7 +29,6 @@ public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleReposito
 
     static final List<Class<?>> ANNOTATED_RULE_CLASSES = List.of(
             AvoidGettingSizeCollectionInLoopCheck.class,
-            AvoidDoubleQuoteCheck.class,
             AvoidFullSQLRequestCheck.class,
             AvoidSQLRequestInLoopCheck.class,
             AvoidTryCatchWithFileOpenedCheck.class,

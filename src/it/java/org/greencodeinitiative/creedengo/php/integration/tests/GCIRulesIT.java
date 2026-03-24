@@ -27,6 +27,8 @@ import org.junit.jupiter.api.Test;
 import org.sonarqube.ws.Issues;
 import org.sonarqube.ws.Measures;
 
+import org.greencodeinitiative.creedengo.integration.tests.GCIRulesBase;
+
 class GCIRulesIT extends GCIRulesBase {
 
     @Test
@@ -99,18 +101,6 @@ class GCIRulesIT extends GCIRulesBase {
         String ruleMsg = "Avoid the use of try-catch with a file open in try block";
         int[] startLines = new int[]{5, 21, 35, 43, 54, 64, 86, 96};
         int[] endLines = new int[]{11, 27, 35, 43, 54, 64, 86, 96};
-
-        checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
-    }
-
-    @Test
-    void testGCI66() {
-
-        String filePath = "src/AvoidDoubleQuote.php";
-        String ruleId = "creedengo-php:GCI66";
-        String ruleMsg = "Avoid using double quote (\"), prefer using simple quote (')";
-        int[] startLines = new int[]{4, 14, 22, 26};
-        int[] endLines = new int[]{4, 14, 22, 26};
 
         checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
     }
