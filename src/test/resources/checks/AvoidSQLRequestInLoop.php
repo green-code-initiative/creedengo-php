@@ -72,4 +72,12 @@ class AvoidFullSQLRequest
             ++$nbOfRequest;
         } while ($expectedNbOfRequest > $nbOfRequest);
     }
+
+    private function emptyLoop()
+    {
+        // This loop is intentionally left without SQL requests.
+        for ($i = 0; $i < 10; $i++) {
+            // no operation
+        }
+    }
 }
