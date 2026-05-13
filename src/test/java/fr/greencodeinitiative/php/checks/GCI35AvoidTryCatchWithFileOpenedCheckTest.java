@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class AvoidUsingGlobalVariablesCheckTest {
+class GCI35AvoidTryCatchWithFileOpenedCheckTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new AvoidUsingGlobalVariablesCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidUsingGlobalVariablesCheck.php")));
+        PHPCheckTest.check(new GCI35AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI35/AvoidTryCatchWithFileOpenedCheck.php")));
     }
 
 }

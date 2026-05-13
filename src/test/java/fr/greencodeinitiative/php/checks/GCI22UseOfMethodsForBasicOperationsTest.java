@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class AvoidTryCatchWithFileOpenedCheckTest {
+class GCI22UseOfMethodsForBasicOperationsTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidTryCatchWithFileOpenedCheck.php")));
+        PHPCheckTest.check(new GCI22UseOfMethodsForBasicOperations(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI22/UseOfMethodsForBasicOperations.php")));
     }
 
 }

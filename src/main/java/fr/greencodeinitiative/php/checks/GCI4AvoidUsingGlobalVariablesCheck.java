@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 @Rule(key = "GCI4")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC4")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "D4")
-public class AvoidUsingGlobalVariablesCheck extends PHPVisitorCheck {
+public class GCI4AvoidUsingGlobalVariablesCheck extends PHPVisitorCheck {
 
     public static final String ERROR_MESSAGE = "Prefer local variables to globals";
 

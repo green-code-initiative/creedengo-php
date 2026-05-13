@@ -28,15 +28,15 @@ import java.util.List;
 public class PhpRuleRepository implements RulesDefinition, PHPCustomRuleRepository {
 
     static final List<Class<?>> ANNOTATED_RULE_CLASSES = List.of(
-            AvoidGettingSizeCollectionInLoopCheck.class,
-            AvoidFullSQLRequestCheck.class,
-            AvoidSQLRequestInLoopCheck.class,
-            AvoidTryCatchWithFileOpenedCheck.class,
-            AvoidUsingGlobalVariablesCheck.class,
-            IncrementCheck.class,
-            NoFunctionCallWhenDeclaringForLoop.class,
-            UseOfMethodsForBasicOperations.class,
-            AvoidMultipleIfElseStatementCheck.class
+            GCI3AvoidGettingSizeCollectionInLoopCheck.class,
+            GCI74AvoidFullSQLRequestCheck.class,
+            GCI72AvoidSQLRequestInLoopCheck.class,
+            GCI35AvoidTryCatchWithFileOpenedCheck.class,
+            GCI4AvoidUsingGlobalVariablesCheck.class,
+            GCI67IncrementCheck.class,
+            GCI69NoFunctionCallWhenDeclaringForLoop.class,
+            GCI22UseOfMethodsForBasicOperations.class,
+            GCI2AvoidMultipleIfElseStatementCheck.class
     );
 
     private static final String LANGUAGE = "php";

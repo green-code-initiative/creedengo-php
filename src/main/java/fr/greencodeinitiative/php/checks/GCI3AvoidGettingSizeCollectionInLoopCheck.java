@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 
 @Rule(key = "GCI3")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC3")
-public class AvoidGettingSizeCollectionInLoopCheck extends PHPSubscriptionCheck {
+public class GCI3AvoidGettingSizeCollectionInLoopCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Avoid getting the size of the collection in the loop";
     private static final Pattern PATTERN = Pattern.compile("\\b(?:count|sizeof|iterator_count)\\b");

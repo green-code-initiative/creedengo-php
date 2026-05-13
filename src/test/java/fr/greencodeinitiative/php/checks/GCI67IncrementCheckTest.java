@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class NoFunctionCallWhenDeclaringForLoopTest {
+class GCI67IncrementCheckTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new NoFunctionCallWhenDeclaringForLoop(), new PhpTestFile(new File("src/test/resources/checks/NoFunctionCallWhenDeclaringForLoop.php")));
+        PHPCheckTest.check(new GCI67IncrementCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI67/IncrementCheck.php")));
     }
 
 }

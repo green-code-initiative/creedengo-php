@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class IncrementCheckTest {
+class GCI2AvoidMultipleIfElseStatementCheckTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new IncrementCheck(), new PhpTestFile(new File("src/test/resources/checks/IncrementCheck.php")));
+        PHPCheckTest.check(new GCI2AvoidMultipleIfElseStatementCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI2/AvoidMultipleIfElseStatement.php")));
     }
 
 }

@@ -17,17 +17,30 @@
  */
 package fr.greencodeinitiative.php.checks;
 
-import org.junit.jupiter.api.Test;
-import org.sonar.plugins.php.api.tests.PHPCheckTest;
-import org.sonar.plugins.php.api.tests.PhpTestFile;
+import java.util.Collections;
+import java.util.List;
 
-import java.io.File;
+import org.sonar.check.Rule;
+import org.sonar.plugins.php.api.tree.Tree;
+import org.sonar.plugins.php.api.tree.Tree.Kind;
+import org.sonar.plugins.php.api.visitors.PHPSubscriptionCheck;
+import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 
-class AvoidFullSQLRequestCheckTest {
+@Rule(key = "GCI67")
+@DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC67")
+@DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S67")
+public class GCI67IncrementCheck extends PHPSubscriptionCheck {
 
-    @Test
-    void test() {
-        PHPCheckTest.check(new AvoidFullSQLRequestCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidFullSQLRequest.php")));
+    public static final String ERROR_MESSAGE = "Remove the usage of $i++. prefer ++$i";
+
+    @Override
+    public List<Kind> nodesToVisit() {
+        return Collections.singletonList(Kind.POSTFIX_INCREMENT);
+    }
+
+    @Override
+    public void visitNode(Tree tree) {
+        context().newIssue(this, tree, ERROR_MESSAGE);
     }
 
 }
