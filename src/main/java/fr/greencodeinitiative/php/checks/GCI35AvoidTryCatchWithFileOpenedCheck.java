@@ -35,7 +35,7 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S34")
 @DeprecatedRuleKey(ruleKey = "EC34")
 
-public class AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
+public class GCI35AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Avoid the use of try-catch with a file open in try block";
 

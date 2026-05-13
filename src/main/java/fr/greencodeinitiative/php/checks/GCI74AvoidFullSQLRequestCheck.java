@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 @Rule(key = "GCI74")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC74")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S74")
-public class AvoidFullSQLRequestCheck extends PHPSubscriptionCheck {
+public class GCI74AvoidFullSQLRequestCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Don't use the query SELECT * FROM";
 

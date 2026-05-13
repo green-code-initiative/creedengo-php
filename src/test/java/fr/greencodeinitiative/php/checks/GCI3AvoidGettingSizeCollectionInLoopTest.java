@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class AvoidSQLRequestInLoopCheckTest {
+class GCI3AvoidGettingSizeCollectionInLoopTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new AvoidSQLRequestInLoopCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidSQLRequestInLoop.php")));
+        PHPCheckTest.check(new GCI3AvoidGettingSizeCollectionInLoopCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI3/AvoidGettingSizeCollectionInLoop.php")));
     }
 
 }

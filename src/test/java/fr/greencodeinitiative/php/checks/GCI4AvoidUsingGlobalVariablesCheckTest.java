@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class AvoidGettingSizeCollectionInLoopTest {
+class GCI4AvoidUsingGlobalVariablesCheckTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new AvoidGettingSizeCollectionInLoopCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidGettingSizeCollectionInLoop.php")));
+        PHPCheckTest.check(new GCI4AvoidUsingGlobalVariablesCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI4/AvoidUsingGlobalVariablesCheck.php")));
     }
 
 }

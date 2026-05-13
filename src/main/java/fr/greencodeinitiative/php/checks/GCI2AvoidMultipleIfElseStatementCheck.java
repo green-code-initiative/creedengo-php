@@ -43,7 +43,7 @@ import java.util.Map;
  */
 @Rule(key = "GCI2")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC2")
-public class AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
+public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Use a switch statement instead of multiple if-else if possible";
 

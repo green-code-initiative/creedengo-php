@@ -33,7 +33,7 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 @Rule(key = "GCI69")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC69")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S69")
-public class NoFunctionCallWhenDeclaringForLoop extends PHPSubscriptionCheck {
+public class GCI69NoFunctionCallWhenDeclaringForLoop extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Do not call a function in for-type loop declaration";
 

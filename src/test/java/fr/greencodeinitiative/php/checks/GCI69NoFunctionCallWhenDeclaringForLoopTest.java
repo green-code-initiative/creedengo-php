@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class AvoidMultipleIfElseStatementCheckTest {
+class GCI69NoFunctionCallWhenDeclaringForLoopTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new AvoidMultipleIfElseStatementCheck(), new PhpTestFile(new File("src/test/resources/checks/AvoidMultipleIfElseStatement.php")));
+        PHPCheckTest.check(new GCI69NoFunctionCallWhenDeclaringForLoop(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI69/NoFunctionCallWhenDeclaringForLoop.php")));
     }
 
 }

@@ -23,11 +23,11 @@ import org.sonar.plugins.php.api.tests.PhpTestFile;
 
 import java.io.File;
 
-class UseOfMethodsForBasicOperationsTest {
+class GCI72AvoidSQLRequestInLoopCheckTest {
 
     @Test
     void test() {
-        PHPCheckTest.check(new UseOfMethodsForBasicOperations(), new PhpTestFile(new File("src/test/resources/checks/UseOfMethodsForBasicOperations.php")));
+        PHPCheckTest.check(new GCI72AvoidSQLRequestInLoopCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI72/AvoidSQLRequestInLoop.php")));
     }
 
 }

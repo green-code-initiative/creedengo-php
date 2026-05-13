@@ -37,7 +37,7 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 @Rule(key = "GCI72")
 @DeprecatedRuleKey(repositoryKey = "ecocode-php", ruleKey = "EC72")
 @DeprecatedRuleKey(repositoryKey = "gci-php", ruleKey = "S72")
-public class AvoidSQLRequestInLoopCheck extends PHPSubscriptionCheck {
+public class GCI72AvoidSQLRequestInLoopCheck extends PHPSubscriptionCheck {
 
     public static final String ERROR_MESSAGE = "Avoid SQL request in loop";
     private static final Pattern PATTERN = Pattern.compile("(mysql(i::|_)query\\s*\\(.*)|(oci_execute\\(.*)");

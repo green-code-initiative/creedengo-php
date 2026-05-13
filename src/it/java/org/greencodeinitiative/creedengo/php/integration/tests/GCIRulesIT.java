@@ -42,13 +42,11 @@ class GCIRulesIT extends GCIRulesBase {
 
         List<Issues.Issue> projectIssues = searchIssuesForComponent(projectKey, null).getIssuesList();
         assertThat(projectIssues).isNotEmpty();
-
     }
 
     @Test
     void testGCI2() {
-
-        String filePath = "src/AvoidMultipleIfElseStatement.php";
+        String filePath = "src/GCI2/AvoidMultipleIfElseStatement.php";
         String ruleId = "creedengo-php:GCI2";
         String ruleMsg = "Use a switch statement instead of multiple if-else if possible";
         int[] startLines = new int[]{213, 232, 234, 260, 277, 298, 300, 319, 323, 325, 345, 351, 377, 396, 398, 399, 401, 423, 444, 446};
@@ -59,8 +57,7 @@ class GCIRulesIT extends GCIRulesBase {
 
     @Test
     void testGCI3() {
-
-        String filePath = "src/AvoidGettingSizeCollectionInLoop.php";
+        String filePath = "src/GCI3/AvoidGettingSizeCollectionInLoop.php";
         String ruleId = "creedengo-php:GCI3";
         String ruleMsg = "Avoid getting the size of the collection in the loop";
         int[] startLines = new int[]{8, 17, 26, 38, 47, 56, 69, 82, 95, 111, 124, 137, 153, 166, 179, 195, 208, 221};
@@ -71,20 +68,18 @@ class GCIRulesIT extends GCIRulesBase {
 
     @Test
     void testGCI4() {
-
-        String filePath = "src/AvoidUsingGlobalVariablesCheck.php";
+        String filePath = "src/GCI4/AvoidUsingGlobalVariablesCheck.php";
         String ruleId = "creedengo-php:GCI4";
         String ruleMsg = "Prefer local variables to globals";
         int[] startLines = new int[]{5, 10};
-        int[] endLines = new int[]{8, 14};
+        int[] endLines = new int[]{8, 15};
 
         checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
     }
 
     @Test
     void testGCI22() {
-
-        String filePath = "src/UseOfMethodsForBasicOperations.php";
+        String filePath = "src/GCI22/UseOfMethodsForBasicOperations.php";
         String ruleId = "creedengo-php:GCI22";
         String ruleMsg = "Use of methods for basic operations";
         int[] startLines = new int[]{3, 11};
@@ -95,20 +90,18 @@ class GCIRulesIT extends GCIRulesBase {
 
     @Test
     void testGCI35() {
-
-        String filePath = "src/AvoidTryCatchWithFileOpenedCheck.php";
+        String filePath = "src/GCI35/AvoidTryCatchWithFileOpenedCheck.php";
         String ruleId = "creedengo-php:GCI35";
         String ruleMsg = "Avoid the use of try-catch with a file open in try block";
-        int[] startLines = new int[]{5, 21, 35, 43, 54, 64, 86, 96};
-        int[] endLines = new int[]{11, 27, 35, 43, 54, 64, 86, 96};
+        int[] startLines = new int[]{5, 21, 35, 43, 54, 65, 75, 97, 107, 122, 132, 142};
+        int[] endLines = new int[]{11, 27, 35, 43, 54, 65, 75, 97, 107, 122, 132, 142};
 
         checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
     }
 
     @Test
     void testGCI67() {
-
-        String filePath = "src/IncrementCheck.php";
+        String filePath = "src/GCI67/IncrementCheck.php";
         String ruleId = "creedengo-php:GCI67";
         String ruleMsg = "Remove the usage of $i++. prefer ++$i";
         int[] startLines = new int[]{6};
@@ -119,32 +112,29 @@ class GCIRulesIT extends GCIRulesBase {
 
     @Test
     void testGCI69() {
-
-        String filePath = "src/NoFunctionCallWhenDeclaringForLoop.php";
+        String filePath = "src/GCI69/NoFunctionCallWhenDeclaringForLoop.php";
         String ruleId = "creedengo-php:GCI69";
         String ruleMsg = "Do not call a function in for-type loop declaration";
-        int[] startLines = new int[]{31, 40};
-        int[] endLines = new int[]{31, 40};
+        int[] startLines = new int[]{32, 43};
+        int[] endLines = new int[]{32, 43};
 
         checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_5MIN);
     }
 
     @Test
     void testGCI72() {
-
-        String filePath = "src/AvoidSQLRequestInLoop.php";
+        String filePath = "src/GCI72/AvoidSQLRequestInLoop.php";
         String ruleId = "creedengo-php:GCI72";
         String ruleMsg = "Avoid SQL request in loop";
-        int[] startLines = new int[]{40, 43, 53, 56, 67, 70};
-        int[] endLines = new int[]{40, 43, 53, 56, 67, 70};
+        int[] startLines = new int[]{38, 41, 51, 54, 65, 68};
+        int[] endLines = new int[]{38, 41, 51, 54, 65, 68};
 
         checkIssuesForFile(filePath, ruleId, ruleMsg, startLines, endLines, SEVERITY, TYPE, EFFORT_10MIN);
     }
 
     @Test
     void testGCI74() {
-
-        String filePath = "src/AvoidFullSQLRequest.php";
+        String filePath = "src/GCI74/AvoidFullSQLRequest.php";
         String ruleId = "creedengo-php:GCI74";
         String ruleMsg = "Don't use the query SELECT * FROM";
         int[] startLines = new int[]{3, 4, 11, 12, 18, 19};
