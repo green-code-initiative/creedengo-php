@@ -451,7 +451,7 @@ class AvoidMultipleIfElseStatement
     }
 
     // COMPLIANT
-    // privious NPE error in elsecase
+    // previous NPE error in else case
     public function median(array $numbers)
     {
         sort($numbers);
