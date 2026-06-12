@@ -160,3 +160,21 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage() . ' catch in\n';
 }
+
+// COMPLIANT
+// (previously NPE)
+function vq_cache_set_page(string $identifiant, string $content, string $slug): void {
+    if(!is_user_logged_in())
+    {
+        global $wpdb;
+
+        try
+        {
+            $wpdb->replace('commune_content', array('code_insee'=>$identifiant, 'content'=>$content, 'slug'=>$slug));
+        }
+        catch(Exception $e)
+        {
+            vq_log(level: 'warning', filename: basename(__FILE__), message: 'Failed to store commune page content in cache. ' . $e->getMessage());
+        }
+    }
+}
