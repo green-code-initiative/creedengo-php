@@ -68,7 +68,7 @@ Ready to use binaries are available [from GitHub](https://github.com/green-code-
 | 2.0.+          | 9.9.+ to 10.1.0       | 17           |
 | 2.1.+          | 10.2.+ LTS to 25.1.+  | 17           |
 | 2.1.+          | 25.2.+ LTS to 25.12.+ | 17 / 21      |
-| 2.1.+          | 26.1.+ LTS to 26.3.+  | 21           |
+| 2.1.+          | 26.1.+ LTS to 26.6.+  | 21           |
 
 > Compatibility table of versions lower than 1.4.+ are available from the
 > main [creedengo repository](https://github.com/green-code-initiative/creedengo-rules-specifications#-plugins-version-compatibility).
