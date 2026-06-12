@@ -25,9 +25,22 @@ import java.io.File;
 
 class GCI35AvoidTryCatchWithFileOpenedCheckTest {
 
+    // All GCI35 fixtures are grouped in this folder to keep each test focused on one use-case family.
+    private static final String TESTFILES_PATH = System.getProperty("testfiles.path") + "/GCI35/";
+
     @Test
-    void test() {
-        PHPCheckTest.check(new GCI35AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File(System.getProperty("testfiles.path") + "/GCI35/AvoidTryCatchWithFileOpenedCheck.php")));
+    void shouldValidateAllMainUseCases() {
+        // Covers the official non-compliant catalog (fopen/readfile/PDF_OPEN in nested structures)
+        // and a previously failing compliant scenario around try/catch traversal.
+        PHPCheckTest.check(new GCI35AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File(TESTFILES_PATH + "AvoidTryCatchWithFileOpenedCheck.php")));
+    }
+
+    @Test
+    void shouldValidateEdgeCasesAndDefensiveBranches() {
+        // Covers complementary paths (without duplicating main fixture scenarios):
+        // case-insensitive match, dynamic callable (compliant), non-function assignment and
+        // unsupported statement kinds that must be ignored.
+        PHPCheckTest.check(new GCI35AvoidTryCatchWithFileOpenedCheck(), new PhpTestFile(new File(TESTFILES_PATH + "AvoidTryCatchWithFileOpenedCheckEdgeCases.php")));
     }
 
 }

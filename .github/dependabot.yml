@@ -12,3 +12,12 @@ updates:
     ignore:
       # Ignore all versions : cf pom.xml comments
       - dependency-name: "com.mycila:license-maven-plugin"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Keep action update PRs focused and easy to review.
+    commit-message:
+      prefix: "ci"
+
