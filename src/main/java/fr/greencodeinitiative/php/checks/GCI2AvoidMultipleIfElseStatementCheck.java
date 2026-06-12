@@ -31,6 +31,7 @@ import org.sonarsource.analyzer.commons.annotations.DeprecatedRuleKey;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
 
 /**
  * FUNCTIONAL DESCRIPTION : please see ASCIIDOC description file of this rule (inside `creedengo-rules-spcifications`)
@@ -259,8 +260,6 @@ public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck 
 
         Map<String, Integer> currentIfVars = variablesStruct.getVariablesForCurrentIfStruct(pLevel);
 
-        if (currentIfVars == null) { return; }
-
         for (Map.Entry<String, Integer> entry : currentIfVars.entrySet()) {
             String variableName = entry.getKey();
 
@@ -338,7 +337,9 @@ public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck 
             Integer nbParentUsed = null;
             for (int i = pLevel; i >= 0 && nbParentUsed == null; i--) {
                 Map<String, Integer> variablesParentLevelMap = pDataMap.get(i);
-                nbParentUsed = variablesParentLevelMap.get(variableName);
+                if (variablesParentLevelMap != null) {
+                    nbParentUsed = variablesParentLevelMap.get(variableName);
+                }
             }
 
             return nbParentUsed;
@@ -355,12 +356,7 @@ public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck 
          * reinitialization of variable usages in input level in input map
          */
         private void internalReinitVariableUsageForLevelForCurrentIfStruct(Map<Integer, Map<String, Integer>> pDataMap, int pLevel) {
-            if (pDataMap.get(pLevel) == null) { return; }
-
-            // cleaning of current If Structure beginning at level specified
-            for (int i = pLevel; i < pDataMap.size(); i++) {
-                pDataMap.remove(i);
-            }
+            pDataMap.keySet().removeIf(level -> level >= pLevel);
 
         }
 
@@ -382,7 +378,7 @@ public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck 
          * get usage of a variable in a level on if/elseif map
          */
         public Map<String, Integer> getVariablesForCurrentIfStruct(int pLevel) {
-            return mapVariablesPerLevelForCurrentIfStruct.get(pLevel);
+            return mapVariablesPerLevelForCurrentIfStruct.getOrDefault(pLevel, Collections.emptyMap());
         }
 
     }
