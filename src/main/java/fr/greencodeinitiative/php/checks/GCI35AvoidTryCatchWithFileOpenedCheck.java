@@ -45,65 +45,105 @@ public class GCI35AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck 
     }
 
     @Override
-    public void visitNode(Tree tree) {
+    public void visitNode(@SuppressWarnings("NullableProblems") Tree tree) {
 
-        TryStatementTree tryStatement = (TryStatementTree) tree;
+        if (!(tree instanceof TryStatementTree tryStatement)) {
+            return;
+        }
 
         // parcours des statements du bloc try
-        visitStatementsList(tryStatement.block().statements());
+        if (tryStatement.block() != null) {
+            visitStatementsList(tryStatement.block().statements());
+        }
 
     }
 
     private void visitStatementsList(List<StatementTree> lstStmts) {
+        if (lstStmts == null || lstStmts.isEmpty()) {
+            return;
+        }
         for (StatementTree stmt : lstStmts){
+            if (stmt == null) {
+                continue;
+            }
             Tree.Kind kind = stmt.getKind();
             switch (kind) {
                 case EXPRESSION_STATEMENT -> visitExpressionStatement(((ExpressionStatementTree) stmt).expression());
-                case BLOCK -> visitStatementsList(((BlockTree) stmt).statements());
+                case BLOCK -> visitIfNotNullStatements(((BlockTree) stmt).statements());
                 case IF_STATEMENT, ALTERNATIVE_IF_STATEMENT -> visitIfStatement((IfStatementTree) stmt);
-                case FOR_STATEMENT, ALTERNATIVE_FOR_STATEMENT -> visitStatementsList(((ForStatementTree) stmt).statements());
-                case WHILE_STATEMENT, ALTERNATIVE_WHILE_STATEMENT -> visitStatementsList(((WhileStatementTree) stmt).statements());
+                case FOR_STATEMENT, ALTERNATIVE_FOR_STATEMENT -> visitIfNotNullStatements(((ForStatementTree) stmt).statements());
+                case WHILE_STATEMENT, ALTERNATIVE_WHILE_STATEMENT -> visitIfNotNullStatements(((WhileStatementTree) stmt).statements());
                 case DO_WHILE_STATEMENT -> visitStatementsList(Collections.singletonList(((DoWhileStatementTree) stmt).statement()));
-                case FOREACH_STATEMENT, ALTERNATIVE_FOREACH_STATEMENT -> visitStatementsList(((ForEachStatementTree) stmt).statements());
-                case CASE_CLAUSE -> visitStatementsList(((CaseClauseTree) stmt).statements());
+                case FOREACH_STATEMENT, ALTERNATIVE_FOREACH_STATEMENT -> visitIfNotNullStatements(((ForEachStatementTree) stmt).statements());
+                case CASE_CLAUSE -> visitIfNotNullStatements(((CaseClauseTree) stmt).statements());
                 case SWITCH_STATEMENT -> visitSwitchStatement((SwitchStatementTree) stmt);
-                case DEFAULT_CLAUSE -> visitStatementsList(((DefaultClauseTree) stmt).statements());
+                case DEFAULT_CLAUSE -> visitIfNotNullStatements(((DefaultClauseTree) stmt).statements());
                 case TRY_STATEMENT -> visitTryStatement((TryStatementTree) stmt);
+                default -> {
+                    // Nothing to visit for unsupported statement kinds.
+                }
             }
         }
     }
 
+    private void visitIfNotNullStatements(List<StatementTree> statements) {
+        if (statements != null) {
+            visitStatementsList(statements);
+        }
+    }
+
     private void visitIfStatement(IfStatementTree ifStatement) {
+        if (ifStatement == null) {
+            return;
+        }
         visitStatementsList(ifStatement.statements());
 
-        if (ifStatement.elseClause() != null) {
-            visitStatementsList(ifStatement.elseClause().statements());
+        ElseClauseTree elseClause = ifStatement.elseClause();
+        if (elseClause != null) {
+            visitIfNotNullStatements(elseClause.statements());
         }
 
-        if (ifStatement.elseifClauses() != null) {
-            for (ElseifClauseTree stmtElseIf : ifStatement.elseifClauses()) {
-                visitStatementsList(stmtElseIf.statements());
+        List<ElseifClauseTree> elseIfClauses = ifStatement.elseifClauses();
+        if (elseIfClauses != null) {
+            for (ElseifClauseTree stmtElseIf : elseIfClauses) {
+                if (stmtElseIf != null) {
+                    visitIfNotNullStatements(stmtElseIf.statements());
+                }
             }
         }
     }
 
     private void visitTryStatement(TryStatementTree tryStatement) {
+        if (tryStatement == null) {
+            return;
+        }
         for (CatchBlockTree stmtCatch : tryStatement.catchBlocks()) {
-            visitStatementsList(stmtCatch.block().statements());
+            if (stmtCatch.block() != null) {
+                visitIfNotNullStatements(stmtCatch.block().statements());
+            }
         }
 
-        if (tryStatement.finallyBlock() != null) {
-            visitStatementsList(tryStatement.finallyBlock().statements());
+        var finallyBlock = tryStatement.finallyBlock();
+        if (finallyBlock != null) {
+            visitIfNotNullStatements(finallyBlock.statements());
         }
     }
 
     private void visitSwitchStatement(SwitchStatementTree switchStatement) {
+        if (switchStatement == null || switchStatement.cases() == null) {
+            return;
+        }
         for (SwitchCaseClauseTree switchCaseStmt : switchStatement.cases()) {
-            visitStatementsList(switchCaseStmt.statements());
+            if (switchCaseStmt != null && switchCaseStmt.statements() != null) {
+                visitIfNotNullStatements(switchCaseStmt.statements());
+            }
         }
     }
 
     private void visitExpressionStatement(ExpressionTree exprTree){
+        if (exprTree == null) {
+            return;
+        }
         if (exprTree.is(Tree.Kind.FUNCTION_CALL)) { // si directement "function call"
             visitCallExpression((FunctionCallTree) exprTree);
         } else if (exprTree.is(Tree.Kind.ASSIGNMENT)) { // ou si assignment
@@ -124,8 +164,10 @@ public class GCI35AvoidTryCatchWithFileOpenedCheck extends PHPSubscriptionCheck 
     }
 
     private String getFunctionNameFromCallExpression(FunctionCallTree functionCall) {
-        NamespaceNameTree nspTree = (NamespaceNameTree)functionCall.callee();
-        return nspTree != null && nspTree.fullName() != null ? nspTree.fullName() : "";
+        if (functionCall == null || !(functionCall.callee() instanceof NamespaceNameTree nspTree)) {
+            return "";
+        }
+        return nspTree.fullName() != null ? nspTree.fullName() : "";
     }
 
 }
