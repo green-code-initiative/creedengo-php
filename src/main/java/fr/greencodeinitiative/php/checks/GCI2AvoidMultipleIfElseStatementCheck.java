@@ -257,6 +257,8 @@ public class GCI2AvoidMultipleIfElseStatementCheck extends PHPSubscriptionCheck 
      */
     private void computeElseVariables(ElseClauseTree pElseTree, int pLevel) {
 
+        if (variablesStruct.getVariablesForCurrentIfStruct(pLevel) == null) return;
+
         for (Map.Entry<String, Integer> entry : variablesStruct.getVariablesForCurrentIfStruct(pLevel).entrySet()) {
             String variableName = entry.getKey();
 
