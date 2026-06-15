@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [#111](https://github.com/green-code-initiative/creedengo-php/issues/111) refacto all test files to add sub-directories for each rule, to be more clear and to be able to add more tests for each rule in the future
 - [#126](https://github.com/green-code-initiative/creedengo-php/pull/126) Fix NPE on GCI2 and GCI35 + global NPE robustness for these 2 rules
 - harden GitHub Actions security by sanitizing dispatch input usage, pinning external actions to commit SHAs, and enabling Dependabot updates for pinned action references
+- update sonarqube version to 26.6.0
 
 ### Deleted
 
