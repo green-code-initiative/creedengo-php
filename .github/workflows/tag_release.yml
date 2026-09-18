@@ -30,7 +30,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
 
@@ -56,13 +56,13 @@ jobs:
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_ENV
 
       - name: Checkout tag "${{ env.release_tag }}"
-        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.release_tag }}
 
       - name: Extract release notes
         id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@f2dd00dec4102dbc6d7bdf804dfd85546dfa1f0b # v1
+        uses: ffurrer2/extract-release-notes@273da39a24fb7db106a35526c8162815faffd31d # v3.1.0
 
       - name: Build project
         env:
@@ -83,7 +83,7 @@ jobs:
           echo "jar_path=$JAR_FILE" >> $GITHUB_ENV
 
       - name: Create release and upload asset
-        uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
           tag_name: ${{ env.release_tag }}
           name: Release ${{ env.release_tag }}
