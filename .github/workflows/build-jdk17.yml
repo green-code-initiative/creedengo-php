@@ -39,4 +39,4 @@ jobs:
           echo "<settings><pluginGroups><pluginGroup>org.sonarsource.scanner.maven</pluginGroup></pluginGroups></settings>" > ~/.m2/settings.xml
 
       - name: Verify
-        run: ./mvnw -e -B verify -Dtest-it.sonarqube.version=24.12.0.100206
+        run: ./mvnw -e -B verify -Dtest-it.sonarqube.version=10.2.0.77647
