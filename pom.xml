@@ -71,7 +71,9 @@
         <sonar.plugin.api.version>13.8.0.4399</sonar.plugin.api.version>
 
         <!-- max version compatible for JDK 17 -->
-        <sonarphp.version>3.38.0.12239</sonarphp.version>
+         <sonarphp.version>3.38.0.12239</sonarphp.version>
+        <!-- versions > 3.38.x is NON OK because compiled pb (maybe the lib has been refactored) -->
+<!--        <sonarphp.version>3.39.0.12526</sonarphp.version>-->
 
         <sonar-analyzer-commons.version>2.22.0.4796</sonar-analyzer-commons.version>
 

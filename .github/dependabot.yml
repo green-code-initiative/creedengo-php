@@ -9,9 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-    # ignore:
+     ignore:
       # Ignore all versions : cf pom.xml comments
-      # - dependency-name: "com.mycila:license-maven-plugin"
+#       - dependency-name: "com.mycila:license-maven-plugin"
+       - dependency-name: "org.sonarsource.php:sonar-php-plugin"
 
   # - package-ecosystem: "github-actions"
   #   directory: "/"
