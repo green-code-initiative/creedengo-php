@@ -1,0 +1,46 @@
+name: Dependency Submission
+
+# Replaces the GitHub-managed "Automatic Dependency Submission (Maven)" workflow, which runs the
+# runner "mvn" (3.10+) and crashes with maven-git-versioning-extension.
+# IMPORTANT: disable "Automatic dependency submission" in
+# Settings > Advanced Security > Dependency graph, otherwise both workflows will run.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write # required to submit the dependency snapshot
+
+jobs:
+  submit-maven:
+    name: Submit Maven dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # needed by maven-git-versioning-extension
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: 'temurin'
+          java-version: 21
+          cache: maven
+
+      # see build.yml: runner Maven 3.10+ breaks maven-git-versioning-extension
+      - name: Use Maven wrapper distribution as "mvn"
+        run: |
+          ./mvnw -B -v
+          MVN_BIN="$(find "$HOME/.m2/wrapper/dists" -type f -path '*/bin/mvn' | head -n 1)"
+          test -n "$MVN_BIN"
+          dirname "$MVN_BIN" >> "$GITHUB_PATH"
+
+      - name: Check Maven version
+        run: mvn -v
+
+      - name: Submit dependencies
+        uses: advanced-security/maven-dependency-submission-action@b275d12641ac2d2108b2cbb7598b154ad2f2cee8 # v5.0.0

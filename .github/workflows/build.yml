@@ -45,11 +45,20 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-#      - name: Maven versions
-#        run: |
-#          mvn -v
-#          ./mvnw -v
-#          ls "$(dirname "$(dirname "$(readlink -f "$(which mvn)")")")"/lib | grep -i shared-utils || echo "no maven-shared-utils in lib"
+      # The runner image ships Maven 3.10+, which no longer provides maven-shared-utils
+      # => maven-git-versioning-extension (.mvn/extensions.xml) crashes with NoClassDefFoundError.
+      # We expose the Maven distribution of the wrapper (3.9.x) as "mvn" for every sub-process
+      # that calls "mvn" directly (e.g. integration tests launching "mvn sonar:sonar").
+      # To remove when the extension supports Maven 3.10.
+      - name: Use Maven wrapper distribution as "mvn"
+        run: |
+          ./mvnw -B -v
+          MVN_BIN="$(find "$HOME/.m2/wrapper/dists" -type f -path '*/bin/mvn' | head -n 1)"
+          test -n "$MVN_BIN"
+          dirname "$MVN_BIN" >> "$GITHUB_PATH"
+
+      - name: Check Maven version
+        run: mvn -v
 
       - name: Verify
         run: ./mvnw -e -B verify
