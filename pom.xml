@@ -508,6 +508,9 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
+                            <classpathDependencyExcludes>
+                                <classpathDependencyExclude>org.sonarsource.php:sonar-php-plugin</classpathDependencyExclude>
+                            </classpathDependencyExcludes>
                             <systemPropertyVariables>
                                 <test-it.sonarqube.keepRunning>${test-it.sonarqube.keepRunning}</test-it.sonarqube.keepRunning>
                                 <test-it.orchestrator.artifactory.url>${test-it.orchestrator.artifactory.url}</test-it.orchestrator.artifactory.url>
