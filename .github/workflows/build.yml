@@ -57,6 +57,7 @@ jobs:
           test -n "$MVN_BIN"
           dirname "$MVN_BIN" >> "$GITHUB_PATH"
 
+      # for debugging and further analysis if errors with maven
       - name: Check Maven version
         run: mvn -v
 
