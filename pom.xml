@@ -508,6 +508,15 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
+                            <!--
+                                sonar-php-plugin is installed in the SonarQube instance by the integration tests (see "test-it.plugins" below),
+                                so it is not needed on the test classpath. It bundles an old, non-relocated commons-lang3 which shadows
+                                the explicit commons-lang3 3.20.0 dependency: sonar-orchestrator (creedengo-integration-test >= 0.7.0)
+                                then fails with NoSuchMethodError on ObjectUtils.getIfNull(Object, Object) (requires commons-lang3 >= 3.18).
+                            -->
+                            <classpathDependencyExcludes>
+                                <classpathDependencyExclude>org.sonarsource.php:sonar-php-plugin</classpathDependencyExclude>
+                            </classpathDependencyExcludes>
                             <systemPropertyVariables>
                                 <test-it.sonarqube.keepRunning>${test-it.sonarqube.keepRunning}</test-it.sonarqube.keepRunning>
                                 <test-it.orchestrator.artifactory.url>${test-it.orchestrator.artifactory.url}</test-it.orchestrator.artifactory.url>
