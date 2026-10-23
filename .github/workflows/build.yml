@@ -45,6 +45,12 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
+      - name: Maven versions
+        run: |
+          mvn -v
+          ./mvnw -v
+          ls "$(dirname "$(dirname "$(readlink -f "$(which mvn)")")")"/lib | grep -i shared-utils || echo "no maven-shared-utils in lib"
+
       - name: Verify
         run: ./mvnw -e -B verify
 
