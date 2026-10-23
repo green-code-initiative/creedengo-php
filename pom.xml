@@ -68,7 +68,7 @@
         <sonarqube-plugin-api-min.version>9.14.0.375</sonarqube-plugin-api-min.version>
 
         <!-- Version of the SonarQube APIs used by `creedengo-php-plugin` -->
-        <sonar.plugin.api.version>13.8.0.4399</sonar.plugin.api.version>
+        <sonar.plugin.api.version>14.0.0.4498</sonar.plugin.api.version>
 
         <!-- max version compatible for JDK 17 -->
          <sonarphp.version>3.38.0.12239</sonarphp.version>
@@ -209,7 +209,7 @@
         <dependency>
             <groupId>org.green-code-initiative</groupId>
             <artifactId>creedengo-integration-test</artifactId>
-            <version>0.4.0</version>
+            <version>0.7.0</version>
             <scope>test</scope>
         </dependency>
 
@@ -227,7 +227,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.22.1</version>
+            <version>2.22.3</version>
             <scope>test</scope>
         </dependency>
 
