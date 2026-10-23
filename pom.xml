@@ -416,7 +416,7 @@
                                 <artifactItem>
                                     <groupId>org.springframework.data</groupId>
                                     <artifactId>spring-data-commons</artifactId>
-                                    <version>4.0.5</version>
+                                    <version>4.1.1</version>
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
