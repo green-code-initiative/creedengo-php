@@ -75,7 +75,7 @@
         <!-- versions > 3.38.x is NON OK because compiled pb (maybe the lib has been refactored) -->
 <!--        <sonarphp.version>3.39.0.12526</sonarphp.version>-->
 
-        <sonar-analyzer-commons.version>2.22.0.4796</sonar-analyzer-commons.version>
+        <sonar-analyzer-commons.version>2.33.0.5369</sonar-analyzer-commons.version>
 
         <sonar-packaging.version>1.25.1.3002</sonar-packaging.version>
 
