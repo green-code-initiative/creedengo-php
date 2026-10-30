@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [#164](https://github.com/green-code-initiative/creedengo-php/pull/164) Fix Maven CI compatibility with Maven 3.10 by using the pinned wrapper for builds and dependency submission, isolating integration-test Maven roots and the Failsafe classpath.
 - update internal librairies versions
 - reduce noise on resource unit test files
 - [#111](https://github.com/green-code-initiative/creedengo-php/issues/111) refacto to have all the test files in the same place (for UT and IT), to avoid maintaining 2 test directories
